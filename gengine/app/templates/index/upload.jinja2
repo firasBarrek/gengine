@@ -1,0 +1,126 @@
+{% extends "../layout/user_layout.jinja2" %}
+{% block body %}
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Create gamification</a>
+        </li>
+        <li class="breadcrumb-item active">step 2 --> 3</li>
+      </ol>
+
+<h2>Upload your data gamification system (csv file)</h2>
+
+<form action="{{request.route_url('upload')}}" method=post accept-charset="utf-8" enctype=multipart/form-data><p>
+<input class="btn" type=file name=file><input class="btn btn-primary" type=submit value=Upload name=upload>
+</form>
+
+{% if keys %}
+<form action="{{request.route_url('upload')}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
+<div class="form-group">
+    <label for="variable">Select your variable to set : </label>
+    <select class="form-control" id="variable" name="variable" style="width: 40%;">
+    {% for key in keys %}
+        <option>{{ key }}</option>>
+    {% endfor %}
+    </select>
+</div>
+<div class="form-group">
+    <label for="user">Select users attributes : </label>
+    <select class="form-control" id="users" name="users" style="width: 40%;" multiple>
+    {% for key in keys %}
+        <option>{{ key }}</option>>
+    {% endfor %}
+    </select>
+</div>
+<div>
+    <input type=submit class="btn btn-primary" value="Valid and Move to Step 3/3">
+</div>
+</form>
+{% endif %}
+<div style="display:inline-flex;">
+<div style="width: 200px;height: 200px;">
+<canvas id="myChartpie" width="200" height="200"></canvas>
+</div>
+<div style="width: 200px;height: 200px;">
+<canvas id="myChartbar" width="200" height="200"></canvas>
+</div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+var ctx = document.getElementById("myChartpie").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+var ctx2 = document.getElementById("myChartbar").getContext('2d');
+var myChart = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+{% endblock %}

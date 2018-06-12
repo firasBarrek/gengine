@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Gamification Service</title>
+  <!-- Bootstrap core CSS-->
+  <link href="{{ request.static_path('gengine.app:static/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="{{ request.static_path('gengine.app:static/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="{{ request.static_path('gengine.app:static/vendor/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="{{ request.static_path('gengine.app:static/css/sb-admin.css') }}" rel="stylesheet">
+  {% block head %}{% endblock %}
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="{{ request.route_url('index') }}">Gamification Service</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Create gamification">
+          <a class="nav-link" href="{{ request.route_url('index') }}">
+            <i class="fa fa-plus"></i>
+            <span class="nav-link-text">Create gamification</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="{{ request.route_url('dashbord') }}">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+          <a class="nav-link" href="charts.html">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Charts</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+          <a class="nav-link" href="tables.html">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Tables</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <form class="form-inline my-2 my-lg-0 mr-lg-2">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Search for...">
+              <span class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+    {% block body %}{% endblock %}
+      <!--
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">My Dashboard</li>
+      </ol>-->
+      <!--
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Area Chart Example</div>
+        <div class="card-body">
+          <canvas id="myAreaChart" width="100%" height="30"></canvas>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>-->
+      <!--<div class="row">
+        <div class="col-lg-8">
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-8 my-auto">
+                  <canvas id="myBarChart" width="100" height="50"></canvas>
+                </div>
+                <div class="col-sm-4 text-center my-auto">
+                  <div class="h4 mb-0 text-primary">$34,693</div>
+                  <div class="small text-muted">YTD Revenue</div>
+                  <hr>
+                  <div class="h4 mb-0 text-warning">$18,474</div>
+                  <div class="small text-muted">YTD Expenses</div>
+                  <hr>
+                  <div class="h4 mb-0 text-success">$16,219</div>
+                  <div class="small text-muted">YTD Margin</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
+            <div class="card-body">
+              <canvas id="myPieChart" width="100%" height="100"></canvas>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+          </div>
+    </div>
+    </div>-->
+    <!--<div class="col-lg-12">
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fa fa-table"></i> Data Table Example</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Office</th>
+                  <th>Age</th>
+                  <th>Start date</th>
+                  <th>Salary</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Office</th>
+                  <th>Age</th>
+                  <th>Start date</th>
+                  <th>Salary</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <tr>
+                  <td>Shad Decker</td>
+                  <td>Regional Director</td>
+                  <td>Edinburgh</td>
+                  <td>51</td>
+                  <td>2008/11/13</td>
+                  <td>$183,000</td>
+                </tr>
+                <tr>
+                  <td>Michael Bruce</td>
+                  <td>Javascript Developer</td>
+                  <td>Singapore</td>
+                  <td>29</td>
+                  <td>2011/06/27</td>
+                  <td>$183,000</td>
+                </tr>
+                <tr>
+                  <td>Donna Snider</td>
+                  <td>Customer Support</td>
+                  <td>New York</td>
+                  <td>27</td>
+                  <td>2011/01/25</td>
+                  <td>$112,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+      </div>-->
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    </div>
+    </div>
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Gamification 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+
+    <script src="{{ request.static_path('gengine.app:static/vendor/jquery/jquery.min.js') }}"></script>
+    <script src=""></script>
+    <!-- Core plugin JavaScript-->
+    <script src="{{ request.static_path('gengine.app:static/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="{{ request.static_path('gengine.app:static/vendor/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ request.static_path('gengine.app:static/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{{ request.static_path('gengine.app:static/js/sb-admin.min.js') }}"></script>
+    <!-- Custom scripts for this page-->
+    <script src="{{ request.static_path('gengine.app:static/js/sb-admin-datatables.min.js') }}"></script>
+    {% block scripts %}{% endblock %}
+    <!--<script src="{{ request.static_path('gengine.app:static/js/sb-admin-charts.min.js') }}"></script>-->
+
+   <!-- <script type="text/javascript">
+      var ctx = document.getElementById("myAreaChart").getContext('2d');
+      var myChart = new Chart(ctx, {
+          type: 'area',
+          data: {
+              labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+              datasets: [{
+                  label: '# of Votes',
+                  data: [1, 19, 3, 5, 2, 3],
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255,99,132,1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              }
+          }
+      });
+    </script>-->
+  
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+{% extends "../layout/user_layout.jinja2" %}
+{% block body %}
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Create gamification</a>
+        </li>
+        <li class="breadcrumb-item active">step 1 --> 3</li>
+      </ol>
+
+<h2>Create your own Gamification Service</h2>
+
+<form action="{{request.route_url('add_Achivement')}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
+<div class="form-group">
+	<label for="category">achievement category : </label>
+	<input type="text" class="form-control" name="category" id="category" style="width:50%">
+</div>
+
+<div class="form-group">
+	<label for="achievement_name">achievement name : </label>
+	<input type="text" class="form-control" name="achievement_name" id="achievement_name" style="width:50%">
+</div>
+
+<div class="form-group">
+	<label for="achievement_maxlevel">maximum level</label>
+	<input type="number" class="form-control" name="achievement_maxlevel" id="achievement_maxlevel" style="width:18%">
+</div>
+
+<span><b>Select your achivement period</b></span>
+<div style="display:inline-flex; width: 100%">
+<div class="form-group" style="margin-right: 14%">
+	<label for="achievement_valid_start">start date : </label>
+	<input type="date" class="form-control" name="achievement_valid_start" id="achievement_valid_start" style="width:100%">
+</div>
+
+<div class="form-group">
+	<label for="achievement_valid_end">end date :</label>
+	<input type="date" class="form-control" name="achievement_valid_end" id="achievement_valid_end" style="width:100%">
+</div>
+</div>
+
+<span><b>Select your achivement location</b></span>
+<div style="display:inline-flex; width: 100%">
+<div class="form-group" style="margin-right: 14%">
+	<label for="achievement_lat">place (latitude)</label>
+	<input type="text" class="form-control" name="achievement_lat" id="achievement_lat" style="width:100%">
+</div>
+<div class="form-group" style="margin-right: 14%">
+	<label for="achievement_lng">place (langitude)</label>
+	<input type="text" class="form-control" name="achievement_lng" id="achievement_lng" style="width:104%">
+</div>
+<div class="form-group">
+	<label for="achievement_max_distance">max distance</label>
+	<input type="text" class="form-control" name="achievement_max_distance" id="achievement_max_distance" style="width:104%">
+</div>
+</div>
+
+	<input type=submit class="btn btn-primary" value="Valid and Move to Step 2/3">
+
+</form>
+<br>
+{% endblock %}
