@@ -283,6 +283,30 @@ def _get_progress(achievements_for_user, requesting_user):
 
     return ret
 
+@view_config(route_name='get_leaderboard_achievement', renderer='json', request_method="GET")
+def get_leaderboard_achievement(request):
+
+    try:
+        achievement_id = int(request.matchdict["achievement_id"])
+    except:
+        raise APIError(400, "illegal_achievement_id", "no valid achievement_id given")
+
+    return Achievement.get_leaderbord_by_achievement(achievement_id)
+
+@view_config(route_name='get_leaderboard_user', renderer='json', request_method="GET")
+def get_leaderboard_user(request):
+
+    try:
+        achievement_id = int(request.matchdict["achievement_id"])
+    except:
+        raise APIError(400, "illegal_achievement_id", "no valid achievement_id given")
+
+    try:
+        user_id = int(request.matchdict["user_id"])
+    except:
+        raise APIError(400, "illegal_user_id", "no valid user_id given")
+
+    return Achievement.get_leaderbord_by_user(achievement_id,user_id)
 
 @view_config(route_name='get_progress', renderer='json', request_method="GET")
 def get_progress(request):
@@ -404,15 +428,9 @@ def get_position_user(request):
     res = {'user':user["id"],'achievements':Achievements}
     
     return res
-    
+"""    
 @view_config(route_name='get_leaderboard', renderer='json', request_method="GET")
 def get_leaderboard(request):
-    """get all relevant data concerning the user's progress"""
-    """try:
-        user_id = int(request.matchdict["user_id"])
-    except:
-        raise APIError(400, "illegal_user_id", "no valid user_id given")"""
-    
     user = User.get_user(1)
     if not user:
         raise APIError(404, "user_not_found", "user not found")
@@ -441,6 +459,7 @@ def get_leaderboard(request):
     res = {'achievements':Achievements}
     
     return res
+"""
 
 @view_config(route_name='increase_value', renderer='json', request_method="POST")
 @view_config(route_name='increase_value_with_key', renderer='json', request_method="POST")

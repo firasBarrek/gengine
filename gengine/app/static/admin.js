@@ -27,9 +27,14 @@ jQuery().ready(function($) {
             "url":"/position_user/{userid}",
             "method":"GET"
         },
-		"leaderboard" : {
-			"fields":["none"],
-            "url":"/leaderboard",
+        "get_leaderboard_achievement" : {
+            "fields":["achievementid"],
+            "url":"/leaderboard/{achievementid}",
+            "method":"GET"
+        },
+		"get_leaderboard_user" : {
+			"fields":["userid","achievementid"],
+            "url":"/leaderboard/{userid}/{achievementid}",
             "method":"GET"
         },
         "increase_value" : {
