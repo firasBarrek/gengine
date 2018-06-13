@@ -128,7 +128,7 @@ t_achievements = Table('achievements', Base.metadata,
 	Column('priority', ty.Integer, index=True, default=0),
 	Column('evaluation', ty.Enum("immediately","daily","weekly","monthly","yearly","end", name="evaluation_types"), default="immediately", nullable=False),
 	Column('evaluation_timezone', ty.String(), default=None, nullable=True),
-	Column('relevance',ty.Enum("global","friends","city","groups","own", name="relevance_types"), default="own"),
+	Column('relevance',ty.Enum("global","friends","city","region","groups","own", name="relevance_types"), default="own"),
 	Column('view_permission',ty.Enum("everyone", "own", name="achievement_view_permission"), default="everyone"),
 	Column('created_at', ty.DateTime, nullable = False, default=datetime.datetime.utcnow),
 )
@@ -862,6 +862,9 @@ class Achievement(ABase):
 			#TODO
 			user_city = DBSession.execute(select([t_users.c.city]).where(t_users.c.id==user_id)).fetchone()
 			users += [x.id for x in DBSession.execute(select([t_users.c.id,]).where(t_users.c.city==user_city["city"])).fetchall()]
+		elif achievement["relevance"]=="region":
+			user_region = DBSession.execute(select([t_users.c.region]).where(t_users.c.id==user_id)).fetchone()
+			users += [x.id for x in DBSession.execute(select([t_users.c.id,]).where(t_users.c.region==user_region["region"])).fetchall()]
 		elif achievement["relevance"]=="groups":
 			user_group = DBSession.execute(select([t_users_groups.c.group_id]).where(t_users_groups.c.user_id==user_id)).fetchone()
 			users += [x.user_id for x in DBSession.execute(select([t_users_groups.c.user_id,]).where(t_users_groups.c.group_id==user_group["group_id"])).fetchall()]
@@ -882,6 +885,9 @@ class Achievement(ABase):
 			#TODO
 			user_city = DBSession.execute(select([t_users.c.city]).where(t_users.c.id==user_id)).fetchone()
 			users += [x.id for x in DBSession.execute(select([t_users.c.id,]).where(t_users.c.city==user_city["city"])).fetchall()]
+		elif achievement["relevance"]=="region":
+			user_region = DBSession.execute(select([t_users.c.region]).where(t_users.c.id==user_id)).fetchone()
+			users += [x.id for x in DBSession.execute(select([t_users.c.id,]).where(t_users.c.region==user_region["region"])).fetchall()]
 		elif achievement["relevance"]=="groups":
 			user_group = DBSession.execute(select([t_users_groups.c.group_id]).where(t_users_groups.c.user_id==user_id)).fetchone()
 			users += [x.user_id for x in DBSession.execute(select([t_users_groups.c.user_id,]).where(t_users_groups.c.group_id==user_group["group_id"])).fetchall()]
@@ -1018,7 +1024,7 @@ class Achievement(ABase):
 					Goal.evaluate(goal, achievement, achievement_date, user, user_wants_level,None, execute_triggers=execute_triggers)
 					goal_eval = Goal.get_goal_eval_cache(goal["id"], achievement_date, user_id)
 
-				if achievement["relevance"]=="friends" or achievement["relevance"]=="city" or achievement["relevance"]=="groups" or achievement["relevance"]=="global":
+				if achievement["relevance"]=="friends" or achievement["relevance"]=="city" or achievement["relevance"]=="region" or achievement["relevance"]=="groups" or achievement["relevance"]=="global":
 					goal_eval["leaderboard"] = Goal.get_leaderboard(goal, achievement_date, user_ids)
 					#print("achievement")
 					#print(achievement["name"])
