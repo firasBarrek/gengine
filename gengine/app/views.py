@@ -306,7 +306,13 @@ def get_leaderboard_user(request):
     except:
         raise APIError(400, "illegal_user_id", "no valid user_id given")
 
-    return Achievement.get_leaderbord_by_user(achievement_id,user_id)
+    relevance='global'
+    if len(request.matchdict["relevance"])>0:
+        relevance = request.matchdict["relevance"]
+    #relevance = request.matchdict["relevance"]
+    #print('relevance',relevance)
+
+    return Achievement.get_leaderbord_by_user(achievement_id,user_id,relevance)
 
 @view_config(route_name='get_progress', renderer='json', request_method="GET")
 def get_progress(request):

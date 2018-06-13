@@ -3,7 +3,7 @@ def config_routes(config):
     config.add_route('get_progress', '/progress/{user_id}')
     config.add_route('get_position_user', '/position_user/{user_id}')
     config.add_route('get_leaderboard_achievement', '/leaderboard/{achievement_id}')
-    config.add_route('get_leaderboard_user', '/leaderboard/{user_id}/{achievement_id}')
+    config.add_route('get_leaderboard_user', '/leaderboard/{user_id}/{achievement_id}/{relevance}')
     config.add_route('increase_value', '/increase_value/{variable_name}/{user_id}')
     config.add_route('increase_value_with_key', '/increase_value/{variable_name}/{user_id}/{key}')
     config.add_route('increase_multi_values', '/increase_multi_values')

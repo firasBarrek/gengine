@@ -560,28 +560,15 @@ class User(ABase):
 
 	@classmethod
 	def delete_user(cls,user_id):
-		"""delete a user including all dependencies.
+		"""delete a user including all dependencies."""
 		update_connection().execute(t_achievements_users.delete().where(t_achievements_users.c.user_id==user_id))
 		update_connection().execute(t_goal_evaluation_cache.delete().where(t_goal_evaluation_cache.c.user_id==user_id))
 		update_connection().execute(t_users_users.delete().where(t_users_users.c.to_id==user_id))
 		update_connection().execute(t_users_users.delete().where(t_users_users.c.from_id==user_id))
 		update_connection().execute(t_users_groups.delete().where(t_users_groups.c.user_id==user_id))
 		update_connection().execute(t_values.delete().where(t_values.c.user_id==user_id))
-		update_connection().execute(t_users.delete().where(t_users.c.id==user_id))"""
-		print("DBSession")
-		conn = psycopg2.connect("host=localhost dbname=gengine user=postgres password=admin")
-		cur = conn.cursor()
-		with open('C:\Temp\TestUserExcel.csv', 'r') as f:
-			# Notice that we don't need the `csv` module.
-			next(f)	 # Skip the header row.
-			cur.copy_from(f, 'usercsv', sep=';')
-		conn.commit()
-		print("result all")
-		print(all)
-		"""
-		result = DBSession.execute("COPY usercsv FROM 'C:\Temp\TestUserExcel.csv' DELIMITER ';' CSV HEADER")
-		print("result")
-		print(result)"""
+		update_connection().execute(t_users.delete().where(t_users.c.id==user_id))
+
 
 	@classmethod
 	def basic_output(cls, user):
@@ -980,22 +967,36 @@ class Achievement(ABase):
 		return leaderboard
 
 	@classmethod
-	def get_leaderbord_by_user(cls,achievement_id,user_id):
+	def get_leaderbord_by_user(cls,achievement_id,user_id,relevance):
 		leaderboard = {}
 		achievement_date=None
 		achievement = Achievement.get_achievement(achievement_id)
-		goals = Goal.get_goals(achievement["id"])
+
 		users = []
-		users += [x.id for x in DBSession.execute(select([t_users.c.id,])).fetchall()]
-		set(users)
+		if relevance=="city":
+			user_city = DBSession.execute(select([t_users.c.city]).where(t_users.c.id==user_id)).fetchone()
+			users += [x.id for x in DBSession.execute(select([t_users.c.id,]).where(t_users.c.city==user_city["city"])).fetchall()]
+		elif relevance=="region":
+			user_region = DBSession.execute(select([t_users.c.region]).where(t_users.c.id==user_id)).fetchone()
+			users += [x.id for x in DBSession.execute(select([t_users.c.id,]).where(t_users.c.region==user_region["region"])).fetchall()]
+		elif relevance=="groups":
+			user_group = DBSession.execute(select([t_users_groups.c.group_id]).where(t_users_groups.c.user_id==user_id)).fetchone()
+			users += [x.user_id for x in DBSession.execute(select([t_users_groups.c.user_id,]).where(t_users_groups.c.group_id==user_group["group_id"])).fetchall()]
+		elif relevance=="friends":
+			users += [x["to_id"] for x in DBSession.execute(select([t_users_users.c.to_id,], t_users_users.c.from_id==user_id)).fetchall()]
+		elif relevance == "global":
+			users += [x.id for x in DBSession.execute(select([t_users.c.id,])).fetchall()]
+		#users += [x.id for x in DBSession.execute(select([t_users.c.id,])).fetchall()]
+		#users = Achievement.get_relevant_users_by_achievement_and_user(achievement, user_id)
+
+		goals = Goal.get_goals(achievement["id"])
 		for goal in goals:
-			if achievement["relevance"]=="friends" or achievement["relevance"]=="city" or achievement["relevance"]=="groups" or achievement["relevance"]=="global":
-				leaderboard["leaderboard"] = Goal.get_leaderboard(goal, achievement_date, users)
-				own_filter = list(filter(lambda x: x["user"]["id"] == user_id, leaderboard["leaderboard"]))
-				if len(own_filter)>0:
-					leaderboard["user_position"] = own_filter[0]["position"]
-				else:
-					leaderboard["user_position"] = None
+			leaderboard["leaderboard"] = Goal.get_leaderboard(goal, achievement_date, users)
+			own_filter = list(filter(lambda x: x["user"]["id"] == user_id, leaderboard["leaderboard"]))
+			if len(own_filter)>0:
+				leaderboard["user_position"] = own_filter[0]["position"]
+			else:
+				leaderboard["user_position"] = None
 		return leaderboard
 
 
