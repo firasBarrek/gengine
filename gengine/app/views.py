@@ -48,30 +48,31 @@ from gengine.wsgiutil import HTTPSProxied
 my_dict = {}
 @view_config(route_name="upload",renderer="gengine.app:templates/index/upload.jinja2")
 def upload_view(request):
-    my_list = []
     keys = []
+    dir_name = os.path.dirname(os.path.abspath(__file__))+"\\csv_uploads\\file.csv"
     if request.method == 'POST':
         if 'upload' in request.POST:
             content = request.POST['file'].file
             content = content.read()
             content = content.decode('utf-8', 'ignore')
-            my_dict = p.get_dict(file_type="csv", file_content=content, delimiter=';', name_columns_by_row=0)
-            for key, item in my_dict.items():
-                #print(my_dict[key])
-                my_list.append({str(key): item})
-                keys.append(key)
-                #addUsers(keys,my_dict)
+
+            my_dict = p.get_book(file_type="csv", file_content=content, delimiter=';')
+            my_dict.save_as(dir_name, delimiter=';')
+
+            with open(dir_name) as f:
+                keys = f.readline().rstrip().split(";")
+
             return render_to_response('gengine.app:templates/index/upload.jinja2',
-                              {'result':my_list,'keys':keys}, request=request)
+                              {'keys':keys}, request=request)
         else:
-            print('variable',request.POST["variable"])
-            print('my_dict',my_dict)
+            user_id = request.POST["user_id"]
+            user_region = request.POST["region"]
+            user_city = request.POST["city"]
             user_att = []
             for key, item in request.POST.items():
                 if key == 'users':
                     user_att.append(request.POST[key])
-            #print('user_att',user_att)
-            #print(addUsers(user_att))
+            User.add_multiple(user_id,user_region,user_city,user_att,dir_name)
             return render_to_response('gengine.app:templates/index/index.jinja2',
                               {}, request=request)
     else:

@@ -14,17 +14,36 @@
 </form>
 
 {% if keys %}
+<span><b>Select Users Data</b><span>
 <form action="{{request.route_url('upload')}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
-<div class="form-group">
-    <label for="variable">Select your variable to set : </label>
-    <select class="form-control" id="variable" name="variable" style="width: 40%;">
+<div style="display:inline-flex;">
+<div class="form-group" style="width: 60%%;margin-right:10%;">
+    <label for="user_id">Select user id: (required) </label>
+    <select class="form-control" id="user_id" name="user_id" >
     {% for key in keys %}
         <option>{{ key }}</option>>
     {% endfor %}
     </select>
 </div>
+<div class="form-group" style="width: 60%%;margin-right:10%;">
+    <label for="region">Select user region: (if exist) </label>
+    <select class="form-control" id="region" name="region" >
+    {% for key in keys %}
+        <option>{{ key }}</option>>
+    {% endfor %}
+    </select>
+</div>
+<div class="form-group" style="width: 60%%;">
+    <label for="city">Select user city: (if exist) </label>
+    <select class="form-control" id="city" name="city" >
+    {% for key in keys %}
+        <option>{{ key }}</option>>
+    {% endfor %}
+    </select>
+</div>
+</div>
 <div class="form-group">
-    <label for="user">Select users attributes : </label>
+    <label for="user">Select users additional data: </label>
     <select class="form-control" id="users" name="users" style="width: 40%;" multiple>
     {% for key in keys %}
         <option>{{ key }}</option>>

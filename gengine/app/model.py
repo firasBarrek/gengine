@@ -456,6 +456,33 @@ class User(ABase):
 
 	#TODO:Cache
 	@classmethod
+	def add_multiple(cls,user_id,user_region,user_city,user_att,dir_name):
+
+		users = []
+		with open(dir_name) as f:
+			keys = f.readline().rstrip().split(";")
+			index_user_id = keys.index(user_id)
+			index_user_region = keys.index(user_region)
+			index_user_city = keys.index(user_city)
+			i = 6
+			for line in f.readlines():
+				i = i+1
+				data = line.rstrip().split(";")
+				user = User()
+				user.id = i
+				user.region = data[index_user_region]
+				user.city = data[index_user_city]
+				user.additional_public_data = {user_id:data[index_user_id]}
+				users.append(user)
+		for i in range(0,len(users)):
+			print('user',users[i])
+		
+		DBSession.add_all(users)
+		DBSession.flush()
+		DBSession.commit()
+
+	#TODO:Cache
+	@classmethod
 	def get_user(cls,user_id):
 		return DBSession.execute(t_users.select().where(t_users.c.id==user_id)).fetchone()
 
