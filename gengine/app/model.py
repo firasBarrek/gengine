@@ -472,7 +472,11 @@ class User(ABase):
 				user.id = i
 				user.region = data[index_user_region]
 				user.city = data[index_user_city]
-				user.additional_public_data = {user_id:data[index_user_id]}
+				additional_public_data = {}
+				additional_public_data[user_id] = data[index_user_id]
+				for att in range(0,len(user_att)):
+					additional_public_data[user_att[att]] = data[keys.index(user_att[att])]
+				user.additional_public_data = additional_public_data
 				users.append(user)
 		for i in range(0,len(users)):
 			print('user',users[i])
@@ -669,6 +673,13 @@ class Variable(ABase):
 	@cache_general.cache_on_arguments()
 	def get_variable_by_name(cls,name):
 		return DBSession.execute(t_variables.select(t_variables.c.name==name)).fetchone()
+
+	@classmethod
+	def add_variable(cls,name):
+		variable = Variable()
+		variable.name = name
+		DBSession.add(variable)
+		DBSession.flush()
 
 	@classmethod
 	def get_datetime_for_tz_and_group(cls,tz,group,at_datetime=None):
@@ -1323,6 +1334,20 @@ class Goal(ABase):
 	@cache_general.cache_on_arguments()
 	def get_goals(cls,achievement_id):
 		return DBSession.execute(t_goals.select(t_goals.c.achievement_id==achievement_id)).fetchall()
+
+	@classmethod
+	def add_goal(cls,goal_name,goal_goal,variable,achievement_id):
+		goal = Goal()
+		goal.name = goal_name
+		goal.condition = {"term": {"type": "literal", "variable": variable}}
+		goal.condition = str(goal.condition)
+		#goal.condition = "{'term': {'type': 'literal', 'variable': \""+variable+"\"}}"
+		goal.goal = goal_goal+"*level"
+		goal.operator = "geq"
+		goal.group_by_key = False
+		goal.achievement_id = achievement_id
+		DBSession.add(goal)
+		DBSession.flush()
 
 	@classmethod
 	def compute_progress(cls, goal, achievement, user, evaluation_date):

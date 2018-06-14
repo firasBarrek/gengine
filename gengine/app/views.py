@@ -38,17 +38,16 @@ from gengine.app.model import (
     Achievement,
     Value,
     Variable,
-    AuthUser, AuthToken, t_users, AchievementProperty, Reward, AchievementCategory,
+    AuthUser, AuthToken, t_users, AchievementProperty, Reward, AchievementCategory, Goal,
     t_auth_users, t_auth_users_roles, t_auth_roles, t_auth_roles_permissions, UserDevice,
     t_user_device, t_user_messages, UserMessage)
 from gengine.base.settings import get_settings
 from gengine.metadata import DBSession
 from gengine.wsgiutil import HTTPSProxied
 
-my_dict = {}
 @view_config(route_name="upload",renderer="gengine.app:templates/index/upload.jinja2")
 def upload_view(request):
-    keys = []
+    params = request.GET
     dir_name = os.path.dirname(os.path.abspath(__file__))+"\\csv_uploads\\file.csv"
     if request.method == 'POST':
         if 'upload' in request.POST:
@@ -63,7 +62,7 @@ def upload_view(request):
                 keys = f.readline().rstrip().split(";")
 
             return render_to_response('gengine.app:templates/index/upload.jinja2',
-                              {'keys':keys}, request=request)
+                              {'keys':keys,'params':params}, request=request)
         else:
             user_id = request.POST["user_id"]
             user_region = request.POST["region"]
@@ -71,39 +70,30 @@ def upload_view(request):
             user_att = []
             for key, item in request.POST.items():
                 if key == 'users':
-                    user_att.append(request.POST[key])
-            User.add_multiple(user_id,user_region,user_city,user_att,dir_name)
-            return render_to_response('gengine.app:templates/index/index.jinja2',
-                              {}, request=request)
+                    user_att.append(item)
+            #for i in range(0,len(user_att)):
+                #print('user',user_att[i])
+            #User.add_multiple(user_id,user_region,user_city,user_att,dir_name)
+            return HTTPFound(request.route_url('goal',_query=params))
     else:
-        return render_to_response('gengine.app:templates/index/upload.jinja2',
-                              {}, request=request)
+        return {'params':params}
 
-def addUsers(user_att,my_dict):
-    print('my_dict',my_dict)
-    for item in user_att:
-        print(my_dict[item])
-    # create fixture
-    """
-    data = [
-        ["name", "weight", "birth"],
-        ["Adam", 3.4, datetime.date(2017, 2, 3)],
-        ["Smith", 4.2, datetime.date(2014, 11, 12)]
-    ]
-    pyexcel.save_as(array=data,
-                    dest_file_name="birth.xls")
-
-    # import the xls file
-    session = DBSession()  # obtain a sql session
-    p.save_as(file_name="birth.xls",
-                    name_columns_by_row=0,
-                    dest_session=session,
-                    dest_table=BirthRegister)
-    session.close()
-    os.unlink('birth.db')
-    os.unlink("birth.xls")
-    """
-    return "ok"
+@view_config(route_name="goal",renderer="gengine.app:templates/index/goal.jinja2")
+def goal(request):
+    params = request.GET
+    if request.method == 'POST':
+        variable = request.POST["variable"]
+        goal_name = request.POST["goal_name"]
+        goal_goal = request.POST["goal_goal"]
+        achievement_id = params["id"]
+        Variable.add_variable(variable)
+        Goal.add_goal(goal_name,goal_goal,variable,achievement_id)
+        return {}
+    else:
+        dir_name = os.path.dirname(os.path.abspath(__file__))+"\\csv_uploads\\file.csv"
+        with open(dir_name) as f:
+            keys = f.readline().rstrip().split(";")
+        return {'keys':keys,'params':params}
 
 @view_config(route_name="index",renderer="gengine.app:templates/index/index.jinja2")
 def index(request):
@@ -348,22 +338,22 @@ def add_Achivement(request):
     #achievement.name = request.POST["achievement_name"]
     #achievement.valid_start = request.POST["achievement_valid_start"]
     #achievement.valid_end = request.POST["achievement_valid_end"]
-    #achievement.lat = request.POST["achievement_lat"]
-    #achievement.lng = request.POST["achievement_lng"]
-    #achievement.max_distance = request.POST["achievement_max_distance"]
-    #achievement.evaluation = request.POST["achievement_evaluation"]
-    #achievement.evaluation = "immediately"
     #achievement.maxlevel = request.POST["achievement_maxlevel"]
+    #achievement.lat = 0
+    #achievement.lng = 0
+    #achievement.max_distance = 0
+    #achievement.evaluation = "immediately"
     #achievement.evaluation_timezone = "UTC"
     #achievement.achievementcategory_id = achievementCategory.id
 
     #to add with edit after creating groups and friends users
-    #achievement.relevance = request.POST["achievement_relevance"]
+    #achievement.relevance = "friends"
     #achievement.view_permission = request.POST["achievement_view_permission"]
 
     #DBSession.add(achievement)
     #DBSession.flush()
-    return HTTPFound(request.route_url('upload'))
+    params = {"id": "1"}
+    return HTTPFound(request.route_url('upload',_query=params))
 
 @view_config(route_name='add_Variable', renderer='json', request_method="POST")
 def add_Variable(request):

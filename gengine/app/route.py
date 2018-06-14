@@ -23,5 +23,7 @@ def config_routes(config):
     config.add_route('add_Reward', '/add_Achivement_Rewards')
 
     config.add_route('index', '/index')
-    config.add_route('dashbord','/dashbord')
     config.add_route('upload','/upload')
+    config.add_route('goal','/goal')
+    config.add_route('dashbord','/dashbord')
+    

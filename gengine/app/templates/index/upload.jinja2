@@ -9,15 +9,15 @@
 
 <h2>Upload your data gamification system (csv file)</h2>
 
-<form action="{{request.route_url('upload')}}" method=post accept-charset="utf-8" enctype=multipart/form-data><p>
+<form action="{{request.route_url('upload',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data><p>
 <input class="btn" type=file name=file><input class="btn btn-primary" type=submit value=Upload name=upload>
 </form>
 
 {% if keys %}
 <span><b>Select Users Data</b><span>
-<form action="{{request.route_url('upload')}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
-<div style="display:inline-flex;">
-<div class="form-group" style="width: 60%%;margin-right:10%;">
+<form action="{{request.route_url('upload',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
+<div style="display:inline-flex;width:100%;">
+<div class="form-group" style="width: 65%;margin-right:10%;">
     <label for="user_id">Select user id: (required) </label>
     <select class="form-control" id="user_id" name="user_id" >
     {% for key in keys %}
@@ -25,7 +25,7 @@
     {% endfor %}
     </select>
 </div>
-<div class="form-group" style="width: 60%%;margin-right:10%;">
+<div class="form-group" style="width: 65%;margin-right:10%;">
     <label for="region">Select user region: (if exist) </label>
     <select class="form-control" id="region" name="region" >
     {% for key in keys %}
@@ -33,7 +33,7 @@
     {% endfor %}
     </select>
 </div>
-<div class="form-group" style="width: 60%%;">
+<div class="form-group" style="width: 65%;">
     <label for="city">Select user city: (if exist) </label>
     <select class="form-control" id="city" name="city" >
     {% for key in keys %}
@@ -43,8 +43,8 @@
 </div>
 </div>
 <div class="form-group">
-    <label for="user">Select users additional data: </label>
-    <select class="form-control" id="users" name="users" style="width: 40%;" multiple>
+    <label for="user">Select users additional data: (multiple)</label>
+    <select class="form-control" id="users" name="users" style="width: 70%;height:200px;" multiple>
     {% for key in keys %}
         <option>{{ key }}</option>>
     {% endfor %}
@@ -55,6 +55,7 @@
 </div>
 </form>
 {% endif %}
+<!--
 <div style="display:inline-flex;">
 <div style="width: 200px;height: 200px;">
 <canvas id="myChartpie" width="200" height="200"></canvas>
@@ -63,6 +64,7 @@
 <canvas id="myChartbar" width="200" height="200"></canvas>
 </div>
 </div>
+-->
 {% endblock %}
 {% block scripts %}
 <script>

@@ -1,0 +1,46 @@
+{% extends "../layout/user_layout.jinja2" %}
+{% block body %}
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Create gamification</a>
+        </li>
+        <li class="breadcrumb-item active">step 3 --> 3</li>
+      </ol>
+
+<h2>Gamification achievement settigs</h2>
+
+<form action="{{request.route_url('goal',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
+<div class="form-group" style="width: 20%;margin-right:15%;">
+    <label for="variable">Set your variable: </label>
+    <select id="set_variable" class="form-control" id="variable" name="variable" >
+    {% for key in keys %}
+        <option>{{ key }}</option>>
+    {% endfor %}
+    </select>
+</div>
+<span><b>Select your goal</b></span>
+<div class="form-group">
+	<label for="goal_name">goal name : </label>
+	<input type="text" class="form-control" name="goal_name" id="goal_name" style="width:50%">
+</div>
+
+<div class="form-group">
+	<label id="goal_label" for="goal_goal">number of variable to achieve a new level</label>
+	<input type="number" class="form-control" name="goal_goal" id="goal_goal" style="width:18%">
+</div>
+
+<input type=submit class="btn btn-primary" value="Valid and Move to Step 2/3">
+
+</form>
+<br>
+{% endblock %}
+{% block scripts %}
+<script>
+$( document ).ready(function() {
+    $("#set_variable").on('change', function() {
+  		$("#goal_label").html("number of <b style='color:#007bff;'>"+this.value+"</b> to achieve a new level");
+	})
+});
+</script>
+{% endblock %}
