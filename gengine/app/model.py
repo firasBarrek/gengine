@@ -454,6 +454,12 @@ class User(ABase):
 		"""
 		ABase.__init__(self, *args, **kw)
 
+
+	@classmethod
+	def sort(cls,sort_value):
+		result = DBSession.query(sort_value+" from users group by "+sort_value).all()
+		return result
+
 	#TODO:Cache
 	@classmethod
 	def add_multiple(cls,user_id,user_region,user_city,user_att,dir_name):
@@ -765,6 +771,10 @@ class Value(ABase):
 
 	(e.g. it counts the occurences of the "events" which the variable represents) """
 
+	@classmethod
+	def test(cls):
+		user_id = DBSession.query("region from users group by region").all()
+		print('user_id',user_id)
 
 	@classmethod
 	def increase_value(cls, variable_name, user, value, key, at_datetime=None):
@@ -802,6 +812,44 @@ class Value(ABase):
 		new_value = DBSession.execute(select([t_values.c.value, ]).where(condition)).scalar()
 		print("new_value ",new_value)
 		return new_value
+
+	@classmethod
+	def increase(cls, variable_name,user_id, dir_name):
+		key=''
+		at_datetime=None
+		#print('variable_name',variable_name)
+		#print('user_id',user_id)
+		variable = Variable.get_variable_by_name(variable_name)
+		dt = Variable.get_datetime_for_tz_and_group('UTC', variable["group"], at_datetime=at_datetime)
+		#print('variable',variable)
+		with open(dir_name) as f:
+			keys = f.readline().rstrip().split(";")
+			index_variable_name = keys.index(variable_name)
+			index_user_id = keys.index(user_id)
+			for line in f.readlines():
+				#print("okkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
+				data = line.rstrip().split(";")
+				data_value = data[index_variable_name]
+				data_user_id = data[index_user_id]
+				res_user_id = DBSession.query(t_users).filter(
+							  t_users.c.additional_public_data[user_id].astext == data_user_id
+						  ).one()
+				#print('res_user_id',res_user_id[0])
+				#print('data_value',data_value)
+				condition = and_(t_values.c.datetime == dt,
+								 t_values.c.variable_id == variable["id"],
+								 t_values.c.user_id == res_user_id[0],
+								 t_values.c.key == key)
+				update_connection().execute(t_values.insert({"datetime": dt,
+											   "variable_id": variable["id"],
+											   "user_id": res_user_id[0],
+											   "key": key,
+											   "value": data_value}))
+				Variable.invalidate_caches_for_variable_and_user(variable_id=variable["id"], user_id=res_user_id[0], dt = dt)
+				new_value = DBSession.execute(select([t_values.c.value, ]).where(condition)).scalar()
+				#Value.increase_value()
+				#print('new_value',new_value)
+		return 'new_value'
 
 class AchievementCategory(ABase):
 	"""A category for grouping achievement types"""
@@ -1336,12 +1384,10 @@ class Goal(ABase):
 		return DBSession.execute(t_goals.select(t_goals.c.achievement_id==achievement_id)).fetchall()
 
 	@classmethod
-	def add_goal(cls,goal_name,goal_goal,variable,achievement_id):
+	def add_goal(cls,goal_name,goal_condition,goal_goal,achievement_id):
 		goal = Goal()
 		goal.name = goal_name
-		goal.condition = {"term": {"type": "literal", "variable": variable}}
-		goal.condition = str(goal.condition)
-		#goal.condition = "{'term': {'type': 'literal', 'variable': \""+variable+"\"}}"
+		goal.condition = goal_condition
 		goal.goal = goal_goal+"*level"
 		goal.operator = "geq"
 		goal.group_by_key = False

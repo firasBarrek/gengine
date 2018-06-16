@@ -9,6 +9,7 @@ import pyexcel as p
 #import pyramid_excel as excel
 #import pyexcel.ext.csv  # noqa
 import os
+import numpy as np
 
 import base64
 import copy
@@ -74,6 +75,7 @@ def upload_view(request):
             #for i in range(0,len(user_att)):
                 #print('user',user_att[i])
             #User.add_multiple(user_id,user_region,user_city,user_att,dir_name)
+            params.update({'user_id':user_id})
             return HTTPFound(request.route_url('goal',_query=params))
     else:
         return {'params':params}
@@ -81,19 +83,49 @@ def upload_view(request):
 @view_config(route_name="goal",renderer="gengine.app:templates/index/goal.jinja2")
 def goal(request):
     params = request.GET
+    dir_name = os.path.dirname(os.path.abspath(__file__))+"\\csv_uploads\\file.csv"
     if request.method == 'POST':
+        user_id = params["user_id"]
+        print('user_id',user_id)
         variable = request.POST["variable"]
         goal_name = request.POST["goal_name"]
         goal_goal = request.POST["goal_goal"]
         achievement_id = params["id"]
-        Variable.add_variable(variable)
-        Goal.add_goal(goal_name,goal_goal,variable,achievement_id)
-        return {}
+        goal_condition = request.POST["goal_condition"]
+        #Variable.add_variable(variable)
+        #Goal.add_goal(goal_name,goal_condition,goal_goal,achievement_id)
+        #Value.increase(variable,user_id,dir_name)
+        return HTTPFound(request.route_url('leaderboard',_query=params))
     else:
-        dir_name = os.path.dirname(os.path.abspath(__file__))+"\\csv_uploads\\file.csv"
         with open(dir_name) as f:
             keys = f.readline().rstrip().split(";")
         return {'keys':keys,'params':params}
+"""
+@view_config(route_name="sortleaderboard", renderer="JSON", request_method="POST")
+def sortleaderboard(request):
+    sorted_by = request.POST["sort"]
+    sort_res = User.sort(sorted_by)
+    return {'sort_res',sort_res}
+"""
+
+@view_config(route_name="leaderboard", renderer="gengine.app:templates/index/leaderboard.jinja2")
+def leaderboard(request):
+    params = request.GET
+    achievement_id = params["id"]
+    sorted_by = "Global"
+    if request.method == 'POST':
+        if ('sorted_by' in request.POST):
+            sorted_by = request.POST['sorted_by']
+            sort_res = User.sort(sorted_by)
+            myarray = []
+            myarray = np.asarray(sort_res)
+            result = Achievement.get_leaderbord_by_achievement(achievement_id)
+            return {'result':result,'winner':result[0],'exist':sort_res,'sort_res':myarray,'params':params,'sorted_by':sorted_by}
+        else:
+            return {'result':result,'winner':result[0]}
+    else:
+        result = Achievement.get_leaderbord_by_achievement(achievement_id)
+        return {'result':result,'winner':result[0],'params':params,'sorted_by':sorted_by}
 
 @view_config(route_name="index",renderer="gengine.app:templates/index/index.jinja2")
 def index(request):
@@ -329,30 +361,35 @@ def get_progress(request):
 
 @view_config(route_name='add_Achivement', renderer='json', request_method="POST")
 def add_Achivement(request):
-    #achievementCategory = AchievementCategory()
-    #achievementCategory.name = request.POST["category"]
-    #DBSession.add(achievementCategory)
-    #DBSession.flush()
+    """
+    achievementCategory = AchievementCategory()
+    achievementCategory.name = request.POST["category"]
+    DBSession.add(achievementCategory)
+    DBSession.flush()
 
-    #achievement = Achievement()
-    #achievement.name = request.POST["achievement_name"]
-    #achievement.valid_start = request.POST["achievement_valid_start"]
-    #achievement.valid_end = request.POST["achievement_valid_end"]
-    #achievement.maxlevel = request.POST["achievement_maxlevel"]
-    #achievement.lat = 0
-    #achievement.lng = 0
-    #achievement.max_distance = 0
-    #achievement.evaluation = "immediately"
-    #achievement.evaluation_timezone = "UTC"
-    #achievement.achievementcategory_id = achievementCategory.id
-
+    achievement = Achievement()
+    achievement.name = request.POST["achievement_name"]
+    achievement.valid_start = request.POST["achievement_valid_start"]
+    achievement.valid_end = request.POST["achievement_valid_end"]
+    achievement.maxlevel = request.POST["achievement_maxlevel"]
+    achievement.evaluation_timezone = "UTC"
+    achievement.achievementcategory_id = achievementCategory.id
+    """
+    """
+    achievement.lat = 0
+    achievement.lng = 0
+    achievement.max_distance = 0
+    achievement.evaluation = "immediately"
     #to add with edit after creating groups and friends users
-    #achievement.relevance = "friends"
-    #achievement.view_permission = request.POST["achievement_view_permission"]
-
-    #DBSession.add(achievement)
-    #DBSession.flush()
-    params = {"id": "1"}
+    achievement.relevance = "friends"
+    achievement.view_permission = request.POST["achievement_view_permission"]
+    """
+    """
+    DBSession.add(achievement)
+    DBSession.flush()
+    params = {"id": achievement.id}
+    """
+    params = {"id": "7"}
     return HTTPFound(request.route_url('upload',_query=params))
 
 @view_config(route_name='add_Variable', renderer='json', request_method="POST")

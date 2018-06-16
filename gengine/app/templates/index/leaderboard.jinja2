@@ -1,0 +1,78 @@
+{% extends "../layout/user_layout.jinja2" %}
+{% block body %}
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Leaderbord</a>
+        </li>
+        <li class="breadcrumb-item active">Leaderbord users --> {{sorted_by}}</li>
+      </ol>
+      <div class="row" style="float:right;margin-right:2%">
+      <form action="{{request.route_url('leaderboard',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
+      <div style="display:inline-flex;">
+        <select class="form-control" name="sorted_by" onchange="this.form.submit()">
+          <option disabled="true">leaderboard</option>
+          <option>Global</option>
+          <option>Region</option>
+          <option>City</option>
+        </select>
+        {% if exist %}
+        <select class="form-control" style="margin-left:1%">
+        {% for sort_value in sort_res %}
+          <option>{{sort_value[0]}}</option>
+          {% endfor %}
+        </select>
+        {% endif %}
+      </div>
+      </form>
+      </div>
+      <br>
+      <br>
+      <div class="row" style="margin-left:1%">
+        <h4>The winner is <b>{{winner.user.additional_public_data.INTERV_LAST_NAME}} {{winner.user.additional_public_data.INTERV_FIRST_NAME}}</b><img src="{{ request.static_path('gengine.app:static/img/cup.jpg') }}" width="70" heigth="70"/></h4>
+      </div>
+          <div class="table-responsive">
+            <table class="table table-bordered" id="example" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>INTERV_ID</th>
+                  <th>FIRST_NAME</th>
+                  <th>LAST_NAME</th>
+                  <th>FUNCTION</th>
+                  <th>VALUE</th>
+                  <th>POSITION</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>INTERV_ID</th>
+                  <th>FIRST_NAME</th>
+                  <th>LAST_NAME</th>
+                  <th>FUNCTION</th>
+                  <th>VALUE</th>
+                  <th>POSITION</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                {% for res in result %}
+                <tr>
+                  <td>{{ res.user.additional_public_data.INTERV_ID }}</td>
+                  <td>{{ res.user.additional_public_data.INTERV_FIRST_NAME }}</td>
+                  <td>{{ res.user.additional_public_data.INTERV_LAST_NAME }}</td>
+                  <td>{{ res.user.additional_public_data.INTERV_FUNCTION_NAME }}</td>
+                  <td>{{ res.value }}</td>
+                  <td>{{ res.position +1 }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+      {% endblock %}
+      {% block scripts %}
+      <script>
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "order": [[ 4, "desc" ]]
+            } );
+        } );
+      </script>
+      {% endblock %}

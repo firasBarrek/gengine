@@ -26,4 +26,5 @@ def config_routes(config):
     config.add_route('upload','/upload')
     config.add_route('goal','/goal')
     config.add_route('dashbord','/dashbord')
+    config.add_route('leaderboard','/leaderboard')
     
