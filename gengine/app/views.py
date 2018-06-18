@@ -183,6 +183,25 @@ def tables(request):
         achievements = Achievement.get_all_achievements()
         return {'achievements':achievements,'params':params}
 
+@view_config(route_name="progress_user",renderer="gengine.app:templates/index/progress_user.jinja2")
+def progress_user(request):
+    dir_name = os.path.dirname(os.path.abspath(__file__))+"\\csv_uploads\\file.csv"
+    params = request.GET
+    with open(dir_name) as f:
+        keys = f.readline().rstrip().split(";")
+    achievements = Achievement.get_all_achievements()
+    if request.method == 'POST':
+        achievement_id = request.POST['achievement_id']
+        user_id = request.POST['user_id']
+        sort_by = request.POST['sort_by']
+        user_id_value = request.POST['user_id_value']
+        res_id_user = User.get_by_id(user_id,user_id_value)
+        leaderboard = Achievement.get_leaderbord_by_user(achievement_id,res_id_user,sort_by)
+        user = leaderboard['leaderboard'][leaderboard['user_position']]
+        return {'user':user,'achievements':achievements,'params':params,'keys':keys}
+    else:
+        return {'achievements':achievements,'params':params,'keys':keys}
+
 @view_config(route_name="index",renderer="gengine.app:templates/index/index.jinja2")
 def index(request):
     return {}

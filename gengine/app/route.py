@@ -29,4 +29,5 @@ def config_routes(config):
     config.add_route('leaderboard','/leaderboard')
     config.add_route('increase_data','/increase_data')
     config.add_route('tables','/tables')
+    config.add_route('progress_user','/progress_user')
     

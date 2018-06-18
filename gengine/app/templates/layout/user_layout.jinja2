@@ -34,26 +34,40 @@
             <span class="nav-link-text">Create gamification</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Increase">
           <a class="nav-link" href="{{ request.route_url('increase_data') }}">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Increase Values</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Leaderboard">
           <a class="nav-link" href="{{ request.route_url('tables') }}">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Leaderboard</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Badges">
+          <a class="nav-link" href="#">
+            <i class="fa fa-fw fa-trophy"></i>
+            <span class="nav-link-text">Badges & Rewards</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Progress">
+          <a class="nav-link" href="{{ request.route_url('progress_user') }}">
+            <i class="fa fa-fw fa-line-chart"></i>
+            <span class="nav-link-text">Progress</span>
+          </a>
+        </li>
+        <!--
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="{{ request.route_url('dashbord') }}">
             <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
+            <span class="nav-link-text">Charts</span>
           </a>
         </li>
+        -->
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="{{ request.route_url('dashbord') }}">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Charts</span>
           </a>

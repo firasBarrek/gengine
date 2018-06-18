@@ -1,0 +1,78 @@
+{% extends "../layout/user_layout.jinja2" %}
+{% block body %}
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Progress</a>
+        </li>
+        <li class="breadcrumb-item active">users</li>
+      </ol>
+
+<h2>Ckeck users progress</h2>
+
+<form action="{{request.route_url('progress_user',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data><p>
+<div style="display:inline-flex;width:100%;">
+	<div class="form-group" style="width: 25%;margin-right:10%;">
+		<label for="achievement_id">Select achievement: (required) </label>
+		<select class="form-control" id="achivement_id" name="achievement_id" >
+		    {% for achievement in achievements %}
+		        <option value={{achievement["id"]}}>{{ achievement["name"] }}</option>>
+		    {% endfor %}
+		</select>
+	</div>
+
+	<div class="form-group" style="width: 25%;margin-right:10%;">
+	    <label for="user_id">Select user id: (required) </label>
+	    <select class="form-control" id="user_id" name="user_id" >
+	    <option value=""></option>
+	    {% for key in keys %}
+	        <option>{{ key }}</option>
+	    {% endfor %}
+	    </select>
+	</div>
+
+	<div class="form-group" style="width: 25%;">
+	    <label for="sort_by">Sort By: (required) </label>
+	    <select class="form-control" id="sort_by" name="sort_by" >
+          <option value="region">Region</option>
+          <option value="city">City</option>
+	    </select>
+	</div>
+</div>
+<span><b>Find User</b></span>
+<div class="form-group">
+	<label id="label_user_id" for="user_id_value">USER ID</label>
+	<input class="form-control" type="text" id="user_id_value" name="user_id_value" style="width:25%">
+</div>
+
+<div>
+    <input type=submit class="btn btn-primary" value="Get Progress">
+</div>
+
+</form>
+<br>
+{% if user %}
+	<div class="row" style="margin-left:1%;">
+		<b style="color:red;">User Results</b>
+	</div>
+	<div class="row" style="margin-left:1%;">
+		<span>INTERV_ID : <b style="color:blue;">{{user.user['additional_public_data']['INTERV_ID']}}</b><span><br>
+		<span>Last Name : <b style="color:blue;">{{user.user['additional_public_data']['INTERV_LAST_NAME']}}</b><span><br>
+		<span>First Name : <b style="color:blue;">{{user.user['additional_public_data']['INTERV_FIRST_NAME']}}</b><span><br>
+		<span>Function : <b style="color:blue;">{{user.user['additional_public_data']['INTERV_FUNCTION_NAME']}}</b><span><br>
+		<span>Value : <b style="color:blue;">{{user['value']}}</b><span><br>
+		<span>Position : <b style="color:blue;">{{user['position']+1}}</b><span>
+	</div>
+{% endif %}
+<br>
+{% endblock %}
+{% block scripts %}
+<script>
+
+$( document ).ready(function() {
+	$("#user_id").on('change', function() {
+  		$("#label_user_id").html("USER ID <b style='color:#007bff;'>"+this.value+"</b>");
+	})
+});
+</script>
+
+{% endblock %}
