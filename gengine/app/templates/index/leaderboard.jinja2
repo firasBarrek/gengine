@@ -4,26 +4,33 @@
         <li class="breadcrumb-item">
           <a href="#">Leaderbord</a>
         </li>
-        <li class="breadcrumb-item active">Leaderbord users --> {{sorted_by}}</li>
+        <li class="breadcrumb-item active">Leaderbord users --> <b>{{sorted_by}}</b></li>
+        {% if sorted_value %}<li class="breadcrumb-item">{{sorted_value}}</li>{% endif %}
       </ol>
+      <div class="row" style="margin-left:1%">
+      <b>Start Date {{achievement["valid_start"]}} / End Date {{achievement["valid_end"]}}</b>
+      </div>
       <div class="row" style="float:right;margin-right:2%">
-      <form action="{{request.route_url('leaderboard',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
       <div style="display:inline-flex;">
+      <form action="{{request.route_url('leaderboard',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
         <select class="form-control" name="sorted_by" onchange="this.form.submit()">
-          <option disabled="true">leaderboard</option>
-          <option>Global</option>
-          <option>Region</option>
-          <option>City</option>
+          <option value="">Leaderboard</option>
+          <option value="Global">Global</option>
+          <option value="Region">Region</option>
+          <option value="City">City</option>
         </select>
+      </form>
         {% if exist %}
-        <select class="form-control" style="margin-left:1%">
+      <form action="{{request.route_url('leaderboard',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
+        <select class="form-control" style="margin-left:1%" name="sorted_value" onchange="this.form.submit()">
+        <option value=""></option>
         {% for sort_value in sort_res %}
-          <option>{{sort_value[0]}}</option>
+          <option value="{{sort_value[0]}}">{{sort_value[0]}}</option>
           {% endfor %}
         </select>
+      </form>
         {% endif %}
       </div>
-      </form>
       </div>
       <br>
       <br>

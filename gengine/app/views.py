@@ -74,7 +74,7 @@ def upload_view(request):
                     user_att.append(item)
             #for i in range(0,len(user_att)):
                 #print('user',user_att[i])
-            #User.add_multiple(user_id,user_region,user_city,user_att,dir_name)
+            User.add_multiple(user_id,user_region,user_city,user_att,dir_name)
             params.update({'user_id':user_id})
             return HTTPFound(request.route_url('goal',_query=params))
     else:
@@ -86,15 +86,14 @@ def goal(request):
     dir_name = os.path.dirname(os.path.abspath(__file__))+"\\csv_uploads\\file.csv"
     if request.method == 'POST':
         user_id = params["user_id"]
-        print('user_id',user_id)
         variable = request.POST["variable"]
         goal_name = request.POST["goal_name"]
         goal_goal = request.POST["goal_goal"]
         achievement_id = params["id"]
         goal_condition = request.POST["goal_condition"]
-        #Variable.add_variable(variable)
-        #Goal.add_goal(goal_name,goal_condition,goal_goal,achievement_id)
-        #Value.increase(variable,user_id,dir_name)
+        Variable.add_variable(variable)
+        Goal.add_goal(goal_name,goal_condition,goal_goal,achievement_id)
+        Value.increase(variable,user_id,dir_name)
         return HTTPFound(request.route_url('leaderboard',_query=params))
     else:
         with open(dir_name) as f:
@@ -112,20 +111,77 @@ def sortleaderboard(request):
 def leaderboard(request):
     params = request.GET
     achievement_id = params["id"]
-    sorted_by = "Global"
+    sorted_by = {"type":"Global"}
+    achievement = Achievement.get_achievement(achievement_id)
     if request.method == 'POST':
-        if ('sorted_by' in request.POST):
-            sorted_by = request.POST['sorted_by']
-            sort_res = User.sort(sorted_by)
-            myarray = []
-            myarray = np.asarray(sort_res)
-            result = Achievement.get_leaderbord_by_achievement(achievement_id)
-            return {'result':result,'winner':result[0],'exist':sort_res,'sort_res':myarray,'params':params,'sorted_by':sorted_by}
-        else:
-            return {'result':result,'winner':result[0]}
+        if ('sorted_value' in request.POST):
+            sorted_by["type"]=params["type"]
+            sorted_by.update({'value':request.POST['sorted_value']})
+            result = Achievement.get_leaderbord_by_relevance(achievement_id,sorted_by)
+            return {'result':result,'winner':result[0],'params':params,'sorted_by':sorted_by["type"],'achievement':achievement,'sorted_value':request.POST['sorted_value']}
+        elif ('sorted_by' in request.POST):
+            sorted_by["type"] = request.POST['sorted_by']
+            params.update({'type':request.POST['sorted_by']})
+            if sorted_by["type"]=='Global':
+                result = Achievement.get_leaderbord_by_achievement(achievement_id)
+                return {'result':result,'winner':result[0],'params':params,'sorted_by':sorted_by["type"],'achievement':achievement}
+            else:
+                sort_res = User.sort(sorted_by["type"])
+                myarray = []
+                myarray = np.asarray(sort_res)
+                result = Achievement.get_leaderbord_by_achievement(achievement_id)
+                return {'result':result,'winner':result[0],'exist':sort_res,'sort_res':myarray,'params':params,'sorted_by':sorted_by["type"],'achievement':achievement}
     else:
         result = Achievement.get_leaderbord_by_achievement(achievement_id)
-        return {'result':result,'winner':result[0],'params':params,'sorted_by':sorted_by}
+        return {'result':result,'winner':result[0],'params':params,'sorted_by':sorted_by["type"],'achievement':achievement}
+
+@view_config(route_name="increase_data",renderer="gengine.app:templates/index/increase_data.jinja2")
+def increase_data(request):
+    dir_name = os.path.dirname(os.path.abspath(__file__))+"\\csv_uploads\\file.csv"
+    params = request.GET
+    if request.method == 'POST':
+        if 'upload' in request.POST:
+            dir_name = os.path.dirname(os.path.abspath(__file__))+"\\csv_uploads\\values_data.csv"
+            content = request.POST['file'].file
+            content = content.read()
+            content = content.decode('utf-8', 'ignore')
+
+            my_dict = p.get_book(file_type="csv", file_content=content, delimiter=';')
+            my_dict.save_as(dir_name, delimiter=';')
+
+            with open(dir_name) as f:
+                keys_data = f.readline().rstrip().split(";")
+            params.update({'id':request.POST['achievement_id']})
+            return render_to_response('gengine.app:templates/index/increase_data.jinja2',
+                              {'keys_data':keys_data,'params':params}, request=request)
+        elif 'value' in request.POST:
+            user_id = request.POST["user_id"]
+            variable = request.POST["variable"]
+            value = request.POST["value"]
+            user_id_value = request.POST["user_id_value"]
+            Value.increaseByValue(variable,user_id,user_id_value,value)
+            return HTTPFound(request.route_url('increase_data',_query=params))
+        else:
+            user_id = request.POST["user_id"]
+            variable = request.POST["variable"]
+            achievement_id = params["id"]
+            Value.increase(variable,user_id,dir_name)
+            return HTTPFound(request.route_url('leaderboard',_query=params))
+    else:
+        with open(dir_name) as f:
+            keys = f.readline().rstrip().split(";")
+        achievements = Achievement.get_all_achievements()
+        return {'achievements':achievements,'params':params,'keys':keys}
+
+@view_config(route_name="tables",renderer="gengine.app:templates/index/tables.jinja2")
+def tables(request):
+    params = request.GET
+    if request.method == 'POST':
+        params.update({'id':request.POST['achievement_id']})
+        return HTTPFound(request.route_url('leaderboard',_query=params))
+    else:
+        achievements = Achievement.get_all_achievements()
+        return {'achievements':achievements,'params':params}
 
 @view_config(route_name="index",renderer="gengine.app:templates/index/index.jinja2")
 def index(request):
@@ -361,7 +417,7 @@ def get_progress(request):
 
 @view_config(route_name='add_Achivement', renderer='json', request_method="POST")
 def add_Achivement(request):
-    """
+    
     achievementCategory = AchievementCategory()
     achievementCategory.name = request.POST["category"]
     DBSession.add(achievementCategory)
@@ -374,7 +430,7 @@ def add_Achivement(request):
     achievement.maxlevel = request.POST["achievement_maxlevel"]
     achievement.evaluation_timezone = "UTC"
     achievement.achievementcategory_id = achievementCategory.id
-    """
+    
     """
     achievement.lat = 0
     achievement.lng = 0
@@ -384,12 +440,11 @@ def add_Achivement(request):
     achievement.relevance = "friends"
     achievement.view_permission = request.POST["achievement_view_permission"]
     """
-    """
+    
     DBSession.add(achievement)
     DBSession.flush()
     params = {"id": achievement.id}
-    """
-    params = {"id": "7"}
+    #params = {"id": "7"}
     return HTTPFound(request.route_url('upload',_query=params))
 
 @view_config(route_name='add_Variable', renderer='json', request_method="POST")

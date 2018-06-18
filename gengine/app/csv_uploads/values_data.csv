@@ -1,0 +1,300 @@
+INTERV_ID;INTERV_FIRST_NAME;INTERV_LAST_NAME;INTERV_FUNCTION_NAME;INTERV_FUNCTION_LEVEL;INTERV_DSE_ID;INTERV_DSE_NAME;INTERV_DSE_TYPE_NAME;INTERV_REGION_ID;OFFER_ID;OFFER_NAME;OFFER_PRODUCT_ID;OFFER_PRODUCT_NAME;OFFER_SEGMENT_ID;OFFER_SEGMENT_NAME;OFFER_PRODUCT_SEGMENT_KEY;SALES_NB;SALES_UNIT_VALUE
+1_12490_5-2017;Baker Issa Isbieh;Mohammad;Shop Manager;1;1_5-2017;Sweifieh Center;Sweifieh;2;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;224
+1_13283_10-2017;Naser Ahmad AlBanna;Arwa;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+1_13284_11-2017;Nasser Kharo Al-Yousef;Ekhlas;SR;3;1_11-2017;Sweifieh Center;Sweifieh;2;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+1_13566_11-2017;Jehad Abdullah Haddad;Rana;SR;3;1_11-2017;Sweifieh Center;Sweifieh;2;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+1_13630_10-2017;Jameel Mahmoud Sawalha;Dalal;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+1_14015_10-2017;Abdalhakeem Ahmad Alhndawi;Athar;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+1_14466_11-2017;Raslan Mahmoud Elhayek;Nour;SR;3;1_11-2017;Sweifieh Center;Sweifieh;2;1622;My business Mobile 10 1Y_ON;124;Convergent Offer;1;Pro;1241.0;1;0
+1_14669_10-2017;Faisal Azzam Ghbashneh;Mohammad;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+1_14743_10-2017;Osama Mohammad Al Omari;Murad;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;7;Basic;10;Fixed Line;1;Pro;101.0;1;11
+1_14760_10-2017;Nabeel Fatehi Khushman;Husam;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;7;Basic;10;Fixed Line;1;Pro;101.0;1;0
+1_14765_10-2017;Zyad Hashem Alden;Hashem;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+1_14806_10-2017;Ali Abdallah Daggamseh;Loiy;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;4;1
+1_14841_10-2017;Husam Ahmad Daban;Faris;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;8;2 nd line;10;Fixed Line;1;Pro;101.0;1;5
+1_14842_10-2017;Mohammad Mostafa Ellian;Enas;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;0
+1_14862_10-2017;Sameer Abdul Kareem Al Sukkar;Dina;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+1_14926_2-2017;Mohammd Habeb Yacoub Al Mutasem;Yacoub;SR;3;1_2-2017;Sweifieh Center;Sweifieh;2;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+1_15004_2-2017;Abdullah Matrook Al-Khabayba;Eman;SR;3;1_2-2017;Sweifieh Center;Sweifieh;2;1142;Pro Work 4 up to 80 M;1;ADSL;1;Pro;11.0;1;22
+1_15014_2-2017;Anwer Abdel Aziz Al-Harasees;Raneem;SR;3;1_2-2017;Sweifieh Center;Sweifieh;2;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+1_15022_4-2017;Moath Mohammad El Sageer;Mohammad;SR;3;1_4-2017;Sweifieh Center;Sweifieh;2;1060;Mobile Army NA;16;Mobile Lines;11;ARMY;16_11;1;5
+1_15037_6-2017;michele roshdi haddad;areen;SR;3;1_6-2017;Sweifieh Center;Sweifieh;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+1_15038_11-2017;Nayef Abdallah Thwabeh;Alaa;SR;3;1_11-2017;Sweifieh Center;Sweifieh;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+1_15050_4-2017;ahmed abdel-rahman afaneh;qussai;SR;3;1_4-2017;Sweifieh Center;Sweifieh;2;1060;Mobile Army NA;16;Mobile Lines;11;ARMY;16_11;1;1
+1_15072_10-2017;Ali Mahmoud Almakhzomi;Mohmoud;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+1_15123_1-2018;Ma'en Ibrahim Mahadeen;Shaima;SR;3;1_1-2018;Sweifieh Center;Sweifieh;2;5;New Pro fixed 2;10;Fixed Line;1;Pro;101.0;1;0
+1_9256_10-2017;NABIL AHMAD MASALMEH;AHAMAD BARA'A;SR;3;1_10-2017;Sweifieh Center;Sweifieh;2;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+10_2000013102_7-2017;REMWAI;AFAF;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+10_2000738998_7-2017;ALDARADKEH;ALI;Franchise reseller;0;106_7-2017;Franchise - Safeway 7Th Circle;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;8
+10_9792027301_7-2017;MASOUD;TAGHREED;Franchise reseller;0;136_7-2017;Franchise-Irbid Queen Noor Circle;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9801015500_7-2017;MAHMOUD;MOHAMMAD;Franchise reseller;0;113_7-2017;Franchise - Tabarbour;Franchise;1;5;New Pro fixed 2;10;Fixed Line;1;Pro;101.0;1;0
+10_9821051833_7-2017;QASEM;FERAS;Franchise reseller;0;110_7-2017;Franchise - Aqaba;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9842057619_7-2017;KHATATNEH;MAJD;Franchise reseller;0;167_7-2017;Franchise Bayader Shop;Franchise;1;1072;To (alo Unlimited)  unlimited + or to (New Pro fixed 2, 3, unlimited);121;Fixed VAS + Internet VAS + Fixed upgrade;16;Res/Pro;121_16;1;0
+10_9851021631_7-2017;ALOUDALLA;RAED;Franchise reseller;0;141_7-2017;Franchise - Irbid City Center;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9851053575_7-2017;KHASEEB;ABDULLAH;Franchise reseller;0;135_7-2017;Franchise ? AlJabal Alshamali;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;8
+10_9861026040_7-2017;alkhalil;rami;Franchise reseller;0;134_7-2017;Franchise ? Hashmi Shamali;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9861036980_7-2017;YOUSESF;EHAB;Franchise reseller;0;144_7-2017;Franchise - Jabal Alhussein;Franchise;1;1142;Pro Work 4 up to 80 M;1;ADSL;1;Pro;11.0;1;13
+10_9871012563_7-2017;aldabbas;yazan;Franchise reseller;0;113_7-2017;Franchise - Tabarbour;Franchise;1;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;1
+10_9871017918_7-2017;KHAIR;MAHMOUD;Franchise reseller;0;143_7-2017;Franchise-Wahdat;Franchise;1;1060;Mobile Army NA;16;Mobile Lines;11;ARMY;16_11;1;0
+10_9871024218_7-2017;BARAKAT;MOHAMMAD;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+10_9871057135_7-2017;GHANIM;OMAYA;Franchise reseller;0;143_7-2017;Franchise-Wahdat;Franchise;1;83;Pro ADSL SA 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+10_9872004913_7-2017;ALKATEEB;RAWAN;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;4;1
+10_9872030469_7-2017;IBRAHEEM;AMANI;Franchise reseller;0;106_7-2017;Franchise - Safeway 7Th Circle;Franchise;1;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;9
+10_9881006463_7-2017;SALAH;MOTASEM;Franchise reseller;0;111_7-2017;Franchise - Zarqa;Franchise;1;8;2 nd line;10;Fixed Line;1;Pro;101.0;1;5
+10_9881011235_7-2017;OBIEDAT;MOHAMMAD;Franchise reseller;0;141_7-2017;Franchise - Irbid City Center;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9881017168_7-2017;WAEL;KHALED;Franchise reseller;0;143_7-2017;Franchise-Wahdat;Franchise;1;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;10
+10_9881020433_7-2017;KHASAWNEH;HUSSAM;Franchise reseller;0;141_7-2017;Franchise - Irbid City Center;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+10_9881025256_7-2017;DROU;MOHAMMAD;Franchise reseller;0;92_7-2017;Smartbuy (University street);Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9881040960_7-2017;JALAD;MOHAMMAD;Franchise reseller;0;111_7-2017;Franchise - Zarqa;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+10_9881045986_7-2017;ALQATAWNEH;ALMOTHAFAR;Franchise reseller;0;10_7-2017;franchais marka;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;12
+10_9881049845_7-2017;ABUHUSSEIN;AHMAD;Franchise reseller;0;142_7-2017;Franchise-Marj Alhamam;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9882049738_7-2017;ALSHWEESH;MARIAM;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;3;1
+10_9882054874_7-2017;BATAYNEH;MARWA;Franchise reseller;0;136_7-2017;Franchise-Irbid Queen Noor Circle;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9891011642_7-2017;ALATIYAT;AHMAD;Franchise reseller;0;167_7-2017;Franchise Bayader Shop;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9891017213_7-2017;ABURUMMAN;SAED;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;671;Revenue Target ;40;Wainak;13;Card;40_13;1;2
+10_9891023695_7-2017;ALTARAWNEH;OMAR;Franchise reseller;0;70_7-2017;SmartBuy COSMO;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9891033022_7-2017;SAKARNEH;IBRAHIM;Franchise reseller;0;167_7-2017;Franchise Bayader Shop;Franchise;1;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+10_9891033956_7-2017;SALAM;MAHMOUD;Franchise reseller;0;167_7-2017;Franchise Bayader Shop;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9891040247_7-2017;HAMMOURI;LAITH;Franchise reseller;0;141_7-2017;Franchise - Irbid City Center;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9891041757_7-2017;SARAQBI;OSAMA;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;7
+10_9891046845_7-2017;MAHAFDHAH;ODAI;Franchise reseller;0;141_7-2017;Franchise - Irbid City Center;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9892000539_7-2017;EID;WISSAM;Franchise reseller;0;134_7-2017;Franchise ? Hashmi Shamali;Franchise;1;97;Pro Work 1 up to 2 M 2Y;1;ADSL;1;Pro;11.0;1;7
+10_9892046025_7-2017;ALSHARA;ARWA;Franchise reseller;0;144_7-2017;Franchise - Jabal Alhussein;Franchise;1;8;2 nd line;10;Fixed Line;1;Pro;101.0;2;5
+10_9901008835_7-2017;MALKAWI;MOHAMMAD;Franchise reseller;0;141_7-2017;Franchise - Irbid City Center;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9901013371_7-2017;ABUTAHA;BILAL;Franchise reseller;0;144_7-2017;Franchise - Jabal Alhussein;Franchise;1;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;10
+10_9901019751_7-2017;ALSMADI;MAHMOUD;Franchise reseller;0;111_7-2017;Franchise - Zarqa;Franchise;1;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+10_9901023591_7-2017;ABUSAL;ISLAM;Franchise reseller;0;103_7-2017;Franchise-Shmissani;Franchise;1;62;work promo 1  changed to ( my work 1 );1;ADSL;1;Pro;11.0;1;9
+10_9901043914_7-2017;ALOMARI;GAITH;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+10_9901045272_7-2017;LAFI;ABDULLAH;Franchise reseller;0;143_7-2017;Franchise-Wahdat;Franchise;1;83;Pro ADSL SA 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+10_9901064605_7-2017;QADDAH;MOHAMMAD;Franchise reseller;0;10_7-2017;franchais marka;Franchise;1;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;0
+10_9901066098_7-2017;ABBAS;ALI.ABBAS;Franchise reseller;0;112_7-2017;Franchise - Istqlal Mall;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+10_9902058027_7-2017;ALBAW;RASHA;Franchise reseller;0;133_7-2017;Franchise ? Taj Mall;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+10_9902059134_7-2017;KHEIRALLAH;ALAA;Franchise reseller;0;167_7-2017;Franchise Bayader Shop;Franchise;1;1622;My business Mobile 10 1Y_ON;124;Convergent Offer;1;Pro;1241.0;1;0
+10_9911015068_7-2017;ALJAMAL;MAJD;Franchise reseller;0;10_7-2017;franchais marka;Franchise;1;5;New Pro fixed 2;10;Fixed Line;1;Pro;101.0;1;0
+10_9911021416_7-2017;HAMDAN;AHMAD;Franchise reseller;0;103_7-2017;Franchise-Shmissani;Franchise;1;1073;all supplementary services which do not come by default with the offers ;121;Fixed VAS + Internet VAS + Fixed upgrade;16;Res/Pro;121_16;2;0
+10_9911030994_7-2017;ANKEH;WISSAM;Franchise reseller;0;92_7-2017;Smartbuy (University street);Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;8
+10_9911040282_7-2017;ALHAJAHJEH;SANAD;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;1072;To (alo Unlimited)  unlimited + or to (New Pro fixed 2, 3, unlimited);121;Fixed VAS + Internet VAS + Fixed upgrade;16;Res/Pro;121_16;1;0
+10_9911048639_7-2017;SALAM;ISMAIL;Franchise reseller;0;10_7-2017;franchais marka;Franchise;1;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+10_9911049572_7-2017;ALKFAWEEN;HUSSAM;Franchise reseller;0;92_7-2017;Smartbuy (University street);Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+10_9911054534_7-2017;SENJELAWI;FERAS;Franchise reseller;0;103_7-2017;Franchise-Shmissani;Franchise;1;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+10_9911065625_7-2017;SARAYRA;AMER;Franchise reseller;0;167_7-2017;Franchise Bayader Shop;Franchise;1;8;2 nd line;10;Fixed Line;1;Pro;101.0;1;5
+10_9912011890_7-2017;BARBARAWI;SALAM;Franchise reseller;0;142_7-2017;Franchise-Marj Alhamam;Franchise;1;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+10_9912028954_7-2017;DABABNEH;SALLY;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9912029443_7-2017;HDEIB;HANEEN;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;671;Revenue Target ;40;Wainak;13;Card;40_13;1;2
+10_9912044522_7-2017;OTHMAN;HAYA;Franchise reseller;0;103_7-2017;Franchise-Shmissani;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9912046260_7-2017;GHZAWI;SABA;Franchise reseller;0;70_7-2017;SmartBuy COSMO;Franchise;1;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+10_9912051659_7-2017;SAHLIEH;ALVERYANA;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;83;Pro ADSL SA 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+10_9912051668_7-2017;ALBATTA;RAWAN;Franchise reseller;0;134_7-2017;Franchise ? Hashmi Shamali;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9921008470_7-2017;ALTABER;AMMAR;Franchise reseller;0;112_7-2017;Franchise - Istqlal Mall;Franchise;1;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+10_9921031427_7-2017;QUTISHAT;ABDULLAH;Franchise reseller;0;112_7-2017;Franchise - Istqlal Mall;Franchise;1;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+10_9921040296_7-2017;ALOTAIBI;ALI;Franchise reseller;0;142_7-2017;Franchise-Marj Alhamam;Franchise;1;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+10_9921048999_7-2017;ALASSAF;DEIAA;Franchise reseller;0;142_7-2017;Franchise-Marj Alhamam;Franchise;1;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;0
+10_9921052869_7-2017;KHATEEB;OMAR;Franchise reseller;0;141_7-2017;Franchise - Irbid City Center;Franchise;1;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+10_9922005073_7-2017;HENDAWI;ASEEL;Franchise reseller;0;106_7-2017;Franchise - Safeway 7Th Circle;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9922011626_7-2017;BATARSEH;SUZAN;Franchise reseller;0;103_7-2017;Franchise-Shmissani;Franchise;1;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+10_9922019864_7-2017;FARASH;WAFA;Franchise reseller;0;112_7-2017;Franchise - Istqlal Mall;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;6;1
+10_9922022673_7-2017;BAIDOUN;MAJD;Franchise reseller;0;10_7-2017;franchais marka;Franchise;1;1622;My business Mobile 10 1Y_ON;124;Convergent Offer;1;Pro;1241.0;1;0
+10_9922023294_7-2017;ALMAHADEEN;ALAA;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;3;1
+10_9922056100_7-2017;MRASHID;NISREEN;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+10_9922063068_7-2017;ALFAQRA;SHADAN;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;12
+10_9931009273_7-2017;ABUREZEQ;AHMAD;Franchise reseller;0;112_7-2017;Franchise - Istqlal Mall;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;3;1
+10_9931016184_7-2017;ABULABAN;WALEED;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9931040200_7-2017;ALGHAZAWI;HISHAM;Franchise reseller;0;106_7-2017;Franchise - Safeway 7Th Circle;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9932001780_7-2017;SHIBLI;HANEEN;Franchise reseller;0;168_7-2017;Franchise Safeway Khelda Shop;Franchise;1;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+10_9932005006_7-2017;ALHASAN;IMAN;Franchise reseller;0;110_7-2017;Franchise - Aqaba;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+10_9932021412_7-2017;KHIRADDIN;LEEN;Franchise reseller;0;110_7-2017;Franchise - Aqaba;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9932036935_7-2017;SALAHAT;INAM;Franchise reseller;0;135_7-2017;Franchise ? AlJabal Alshamali;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;5;1
+10_9932038365_7-2017;TAYEM;NANCY;Franchise reseller;0;168_7-2017;Franchise Safeway Khelda Shop;Franchise;1;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;2;11
+10_9932040333_7-2017;MISHAL;MERAL;Franchise reseller;0;70_7-2017;SmartBuy COSMO;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;4;1
+10_9932049116_7-2017;HAMZEH;RASHA;Franchise reseller;0;113_7-2017;Franchise - Tabarbour;Franchise;1;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+10_9932055203_7-2017;SHARLOQ;NAREEN;Franchise reseller;0;141_7-2017;Franchise - Irbid City Center;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9932058761_7-2017;JABER;ASMAA;Franchise reseller;0;134_7-2017;Franchise ? Hashmi Shamali;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9941006416_7-2017;NOBANI;MAEN;Franchise reseller;0;70_7-2017;SmartBuy COSMO;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9941032018_7-2017;.ALZOUBI;ZAID;Franchise reseller;0;113_7-2017;Franchise - Tabarbour;Franchise;1;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;10
+10_9941044728_7-2017;ATTEYEH;AHMAD;Franchise reseller;0;103_7-2017;Franchise-Shmissani;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+10_9942002704_7-2017;ALEDEINAT;NOUR;Franchise reseller;0;10_7-2017;franchais marka;Franchise;1;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;0
+10_9942010137_7-2017;ALMASEES;LAMA.;Franchise reseller;0;70_7-2017;SmartBuy COSMO;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;3;1
+10_9942010241_7-2017;GAZAWI;FARAH;Franchise reseller;0;167_7-2017;Franchise Bayader Shop;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_9942024204_7-2017;HAJJAJ;NERMIN;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;7
+10_9942037781_7-2017;ABULABAN;TASNEEM;Franchise reseller;0;144_7-2017;Franchise - Jabal Alhussein;Franchise;1;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+10_9951006479_7-2017;ABUALHAJ;BADER;Franchise reseller;0;102_7-2017;Franchise-City Mall;Franchise;1;64;work promo 2 ( my work 2) ;1;ADSL;1;Pro;11.0;1;13
+10_9952002334_7-2017;MARIE;RUBA;Franchise reseller;0;113_7-2017;Franchise - Tabarbour;Franchise;1;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+10_P.# A02947224_7-2017;HASSAN;MALAK;Franchise reseller;0;167_7-2017;Franchise Bayader Shop;Franchise;1;6;New Pro fixed unlimited;10;Fixed Line;1;Pro;101.0;1;0
+11_10737_11-2017;Ali Ibrahim Abandah;Ra'ad;Shop Supervisor;2;11_11-2017;Tla' Al-Ali Center;Shops  selling all products and FTTH with Sira shampions;2;1073;all supplementary services which do not come by default with the offers ;121;Fixed VAS + Internet VAS + Fixed upgrade;16;Res/Pro;121_16;1;0
+11_13288_10-2017;Adnan Mahammad Kamel Odeh;Abeer;SR;3;11_10-2017;Tla' Al-Ali Center;Shops  selling all products and FTTH with Sira shampions;2;8;2 nd line;10;Fixed Line;1;Pro;101.0;1;5
+11_14265_1-2018;Hani Saud Abu Alsamen;Ahmad;Shop Manager;1;11_1-2018;Tla' Al-Ali Center;Shops  selling all products and FTTH with Sira shampions;2;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;0
+11_14285_1-2018;Jamal Jamil Al Qaisi;Nadia;SR;3;11_1-2018;Tla' Al-Ali Center;Shops  selling all products and FTTH with Sira shampions;2;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;1217
+11_14640_9-2016;Mousa Ali Al Shoubaki;Alia;SR;3;11_9-2016;Tla' Al-Ali Center;Shops selling all products;2;482;Group A - Res upgrade;18;ADSL Upgrade;16;Res/Pro;18_16;1;9
+11_14936_1-2018;Mohammad Nahar Al Ssou'b;Bara';SR;3;11_1-2018;Tla' Al-Ali Center;Shops  selling all products and FTTH with Sira shampions;2;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;1043
+11_15001_10-2017;Hasan Saeed Manna';Rawan;SR;3;11_10-2017;Tla' Al-Ali Center;Shops  selling all products and FTTH with Sira shampions;2;8;2 nd line;10;Fixed Line;1;Pro;101.0;1;5
+11_15064_10-2017;Suhel Suliman Yaseen;Sirin;SR;3;11_10-2017;Tla' Al-Ali Center;Shops  selling all products and FTTH with Sira shampions;2;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+12_11917_9-2016;Fayez Saleh Abdullah;Wael;Shop Supervisor;2;12_9-2016;Al-Ashrafieh Center;Shops selling all products;5;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;2;34
+12_12498_2-2017;Ribhi Baker Hallak;Raed;Shop Manager;1;12_2-2017;Al-Ashrafieh Center;Shops selling all products;5;71;Orange net 4M+ 2Y;1;ADSL;10;Res;1_10;1;9
+12_13767_10-2017;Bashir Mohammad Al Aqqad;Areej;SR;3;12_10-2017;Al-Ashrafieh Center;Shops selling all products;5;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+12_14364_10-2017;Tayseer Hamied Odwan;Aliaa;SR;3;12_10-2017;Al-Ashrafieh Center;Shops selling all products;5;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+12_14450_10-2017;Hussein Salman Abid;Aya;SR;3;12_10-2017;Al-Ashrafieh Center;Shops selling all products;5;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+12_15065_10-2017;Mohammad Hussien Al Ghazzawi;Hassan;SR;3;12_10-2017;Al-Ashrafieh Center;Shops selling all products;5;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+14_11953_11-2016;Mahmmoud Ahmad Abu Laban;Fatima;SR;3;14_11-2016;Al Khayyam JT SHOP;Shops selling all products;5;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+14_12885_11-2016;Abdelazziz Fayes Musa;Dema;SR;3;14_11-2016;Al Khayyam JT SHOP;Shops selling all products;5;10126;Conv Pro Orange 6 CC_ON;124;Convergent Offer;1;Pro;1241.0;2;0
+14_15016_2-2017;Mahmoud Hamada Atieh;Islam;SR;3;14_2-2017;Al Khayyam JT SHOP;Shops selling all products;5;10126;Conv Pro Orange 6 CC_ON;124;Convergent Offer;1;Pro;1241.0;1;0
+140_14467_10-2017;Saeed Husni Al Awaisheh;Abdallah;SR;3;140_10-2017;Jabal Al-Naser;Shops selling all products except Convergent Pro;5;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+140_14748_10-2017;Mohammad Muti Izzat Abdo;Omar;SR;3;140_10-2017;Jabal Al-Naser;Shops selling all products except Convergent Pro;5;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+147_12160_6-2017;Mohammed Suliman Massadeh;Ra'afat;SR;3;147_6-2017;Elite - Irbid shop;Elite Shop;3;78;New Pro ADSL 1;1;ADSL;1;Pro;11.0;1;9
+15_11865_10-2017;Abdel Qader Mohmmad Al Sharari;Ahmad;SR;3;15_10-2017;Ma'an JT SHOP;Shops selling all products except SME & Convergent Pro;4;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+15_12053_11-2016;Husen Ynes Abuhelalah;Murad;Shop Supervisor;2;15_11-2016;Ma'an JT SHOP;Shops selling all products;4;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;2;27
+15_14830_11-2016;Mohammad Ahmad Qrisheh;Deiaa;SR;3;15_11-2016;Ma'an JT SHOP;Shops selling all products;4;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+15_15105_11-2017;Fawzi Atiyeh Albedoor;Mo'ath;SR;3;15_11-2017;Ma'an JT SHOP;Shops selling all products except SME & Convergent Pro;4;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;3;1
+16_11720_10-2017;Khalaf Ayed Al-Adamat;Aisheh;SR;3;16_10-2017;Al Mafraq JT SHOP;Shops selling all products except SME & Convergent Pro;3;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+16_11764_10-2017;Okleh Muflih Alkhawaldeh;Abdallah;SR;3;16_10-2017;Al Mafraq JT SHOP;Shops selling all products except SME & Convergent Pro;3;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;10
+16_12077_10-2017;Khalaf Mohammad Al0badareen;Khadijah;SR;3;16_10-2017;Al Mafraq JT SHOP;Shops selling all products except SME & Convergent Pro;3;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;3;1
+16_12361_10-2017;Khader Mahmoud Shatat;Mohammed;Shop Manager;1;16_10-2017;Al Mafraq JT SHOP;Shops selling all products except SME & Convergent Pro;3;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;0
+16_14834_10-2017;Najeeb Khaleel Deebajah;Walaa;SR;3;16_10-2017;Al Mafraq JT SHOP;Shops selling all products except SME & Convergent Pro;3;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+17_11882_11-2017;Ahmad Ali Al-Rahahleh;Mohammad  Khair;SR;3;17_11-2017;Mecca Mall JT Group Shop;Shops  selling all products and FTTH except SME & Convergent Pro;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+17_13393_10-2017;Samir Mohammad Ayaseh;Mohammad;SR;3;17_10-2017;Mecca Mall JT Group Shop;Shops  selling all products and FTTH except SME & Convergent Pro;2;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+17_13668_10-2017;Nafez Rasheed Al Robo;Hamza;SR;3;17_10-2017;Mecca Mall JT Group Shop;Shops  selling all products and FTTH except SME & Convergent Pro;2;1073;all supplementary services which do not come by default with the offers ;121;Fixed VAS + Internet VAS + Fixed upgrade;16;Res/Pro;121_16;1;
+17_13705_11-2016;Ismail Abdullah Alhabashnah;Omar;SR;3;17_11-2016;Mecca Mall JT Group Shop;Shops selling all products except SME & Convergent Pro;2;8;2 nd line;10;Fixed Line;1;Pro;101.0;1;5
+17_13930_10-2017;Ali Ahmad Nu'man;Nader;SR;3;17_10-2017;Mecca Mall JT Group Shop;Shops  selling all products and FTTH except SME & Convergent Pro;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+17_14008_10-2017;Muneer Mohammad Hamdan;Mohammad;SR;3;17_10-2017;Mecca Mall JT Group Shop;Shops  selling all products and FTTH except SME & Convergent Pro;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+17_14919_11-2016;Faisal Ahmad Al Serhan;Suhaib;SR;3;17_11-2016;Mecca Mall JT Group Shop;Shops selling all products except SME & Convergent Pro;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+17_15073_8-2017;Ibrahim Tawfiq Al-Omari;Tawfiq;SR;3;17_8-2017;Mecca Mall JT Group Shop;Shops  selling all products and FTTH except SME & Convergent Pro;2;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+17_15125_1-2018;Nouran Mohammad Almajali;Abdel Rahman;SR;3;17_1-2018;Mecca Mall JT Group Shop;Shops  selling all products and FTTH except SME & Convergent Pro;2;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;1099
+17_9246_10-2017;ISMAIL IBRAHIM ABBAS;NART;SR;3;17_10-2017;Mecca Mall JT Group Shop;Shops  selling all products and FTTH except SME & Convergent Pro;2;6;New Pro fixed unlimited;10;Fixed Line;1;Pro;101.0;1;11
+17_9250_11-2016;MOHAMMAD ABDELRAHMAN HAMMAD;IBRAHIM;SR;3;17_11-2016;Mecca Mall JT Group Shop;Shops selling all products except SME & Convergent Pro;2;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+19_10956_10-2017;Dawood Abdul Nabi Al-Rahamneh;Sayel;SR;3;19_10-2017;Swieleh JT SHOP;Shops  selling all products and FTTH with Sira shampions;2;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;0
+19_11338_10-2017;Yousef Soud Al Hendawi;Feras;SR;3;19_10-2017;Swieleh JT SHOP;Shops  selling all products and FTTH with Sira shampions;2;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+19_11667_11-2016;Mohammad Yassen Al Jaafreh;Loay;Shop Supervisor;2;19_11-2016;Swieleh JT SHOP;Shops selling all products;2;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;0
+19_13286_10-2017;Abdellatif Yousef Abdel Razeq;Shatha;SR;3;19_10-2017;Swieleh JT SHOP;Shops  selling all products and FTTH with Sira shampions;2;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+19_13486_11-2017;Eizdeen Mrweh Abdel Rahman;Mohammad;SR;3;19_11-2017;Swieleh JT SHOP;Shops  selling all products and FTTH except SME & Convergent Pro;2;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;0
+19_14499_9-2016;Hafez Ahmad Abu Ghazaleh;Aia;SR;3;19_9-2016;Swieleh JT SHOP;Shops selling all products;2;482;Group A - Res upgrade;18;ADSL Upgrade;16;Res/Pro;18_16;1;12
+19_15063_7-2017;Mohammad Qasim Fahmawi;Abdallah;SR;3;19_7-2017;Swieleh JT SHOP;Shops  selling all products and FTTH with Sira shampions;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+23_11831_10-2017;Salem Mohammad Geizan;Fatima;SR;3;23_10-2017;Irbid _JT SHOP;Shops  selling all products with Sira;3;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+23_11977_7-2017;Mohammad Mahmoud Al-Refae;Ahmad;Shop Manager;1;23_7-2017;Irbid _JT SHOP;Shops  selling all products with Sira;3;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;0
+23_13465_10-2017;Soliman Mufleh Obeidat;Bayan;SR;3;23_10-2017;Irbid _JT SHOP;Shops  selling all products with Sira;3;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;7
+23_13819_10-2017;Alyan Abdallah Al Kofahi;Abdallah;SR;3;23_10-2017;Irbid _JT SHOP;Shops  selling all products with Sira;3;8;2 nd line;10;Fixed Line;1;Pro;101.0;1;5
+23_13846_6-2017;Mustafa Ali Jaradat;Muna;SR;3;23_6-2017;Irbid _JT SHOP;Shops  selling all products with Sira;3;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;8
+23_14729_11-2017;Yahia Hasan Al Omari;Ahmad;SR;3;23_11-2017;Irbid _JT SHOP;Shops  selling all products with Sira;3;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+23_14800_10-2017;Mohammed Ali Hassan Al Qaryouti;Bashar;SR;3;23_10-2017;Irbid _JT SHOP;Shops  selling all products with Sira;3;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+23_14889_11-2016;Jamil Ayed Samardali;Nishan;SR;3;23_11-2016;Irbid _JT SHOP;Shops selling all products;3;482;Group A - Res upgrade;18;ADSL Upgrade;16;Res/Pro;18_16;1;12
+23_14932_10-2017;Nassem Ayad Oweis;Dalia;SR;3;23_10-2017;Irbid _JT SHOP;Shops  selling all products with Sira;3;5;New Pro fixed 2;10;Fixed Line;1;Pro;101.0;1;0
+23_15102_10-2017;Hanna Jrais Rezeq;Razan;SR;3;23_10-2017;Irbid _JT SHOP;Shops  selling all products with Sira;3;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+25_10867_1-2018;Odeh Ghaith Ban Hadaiah;Nayal;SR;3;25_1-2018;Karak JT Shop;Shops selling all products except Convergent Pro;4;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;0,85
+25_11198_1-2018;Obaidallah Mohammad Breekat;Faisal;SR;3;25_1-2018;Karak JT Shop;Shops selling all products except Convergent Pro;4;2264;Orange Gov 4+-2Y;1;ADSL;10;Res;1_10;1;865
+25_11359_10-2017;Ahmad Oteeg A.Alkharsheh;Ali.;SR;3;25_10-2017;Karak JT Shop;Shops selling all products except Convergent Pro;4;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+25_14267_10-2017;Nael Khaleel Al Majali;Tharaa;SR;3;25_10-2017;Karak JT Shop;Shops selling all products except Convergent Pro;4;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+25_14875_10-2017;Mohammad Abd Al Ghanee Al Majali;Ahed;SR;3;25_10-2017;Karak JT Shop;Shops selling all products except Convergent Pro;4;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+25_14903_10-2017;Hussam Ahmad AlKaraki;Thuriea;SR;3;25_10-2017;Karak JT Shop;Shops selling all products except Convergent Pro;4;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+25_15021_2-2017;Ahmad Saleh AlSarayreh;Nabeela;SR;3;25_2-2017;Karak JT Shop;Shops selling all products except Convergent Pro;4;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+25_15088_1-2018;Ibrahim Shawkat Al Bayaydah;Shrouq;SR;3;25_1-2018;Karak JT Shop;Shops selling all products except Convergent Pro;4;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;0,85
+28_11202_10-2017;Hasan Ahmad Al-Wishah;Abed Al-Salam;SR;3;28_10-2017;Salt Shop JT SHOP;Shops selling all products except SME & Convergent Pro;2;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+28_11349_10-2017;Ahmad Ali Alrahahleh;Ali;SR;3;28_10-2017;Salt Shop JT SHOP;Shops selling all products except SME & Convergent Pro;2;70;New Work  2 ;1;ADSL;1;Pro;11.0;1;13
+28_12871_10-2017;Ahmad Kaiyd Hammad;Firas;Shop Manager;1;28_10-2017;Salt Shop JT SHOP;Shops selling all products except SME & Convergent Pro;2;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;48
+28_13823_2-2017;Anwar Antoon Shehade;Amany;SR;3;28_2-2017;Salt Shop JT SHOP;Shops selling all products except SME & Convergent Pro;5;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+28_15079_10-2017;Yahya Mohammad Zaid;Mohyi Aldeen;SR;3;28_10-2017;Salt Shop JT SHOP;Shops selling all products except SME & Convergent Pro;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+29_10920_10-2017;Ahmad Salem Rahamneh;Basher;SR;3;29_10-2017;Ein elbasha JT SHOP;Shops selling all products except SME & Convergent Pro;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+29_12658_10-2017;Abdelruhman Suleiman Al-Smadi;Sofian;Shop Supervisor;2;29_10-2017;Ein elbasha JT SHOP;Shops selling all products except SME & Convergent Pro;2;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;22
+31_11239_11-2016;Sulaiman Thaifallah Al-Smarat;Hussain;SR;3;31_11-2016;Madaba Shop JT SHOP;Shops selling all products except SME & Convergent Pro - Without Q;5;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;3;1
+31_11965_10-2017;Ramadan Said Bayrai;Mohammad;SR;3;31_10-2017;Madaba Shop JT SHOP;Shops selling all products except SME & Convergent Pro;2;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+31_14060_10-2017;Mohammad Muflih Al Jamal;Olfat;SR;3;31_10-2017;Madaba Shop JT SHOP;Shops selling all products except SME & Convergent Pro;2;6;New Pro fixed unlimited;10;Fixed Line;1;Pro;101.0;1;11
+31_15127_1-2018;Said Otallah Alglilat;Mohammad;SR;3;31_1-2018;Madaba Shop JT SHOP;Shops selling all products except SME & Convergent Pro;2;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;865
+32_11179_4-2017;Abd Allatif Dakhel allah Abu-zainat;Mahmoud;Shop Manager;1;32_4-2017;Nazal JT SHOP;Shops selling all products;5;1073;all supplementary services which do not come by default with the offers ;121;Fixed VAS + Internet VAS + Fixed upgrade;16;Res/Pro;121_16;2;0
+32_13294_11-2016;Ahmad Nemer Dweiri;Ibrahim;SR;3;32_11-2016;Nazal JT SHOP;Shops selling all products;5;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+32_15000_10-2017;Ahmed Fares Abdeljawad;Alaa;SR;3;32_10-2017;Nazal JT SHOP;Shops selling all products;5;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;10
+33_11866_10-2017;Ahmad Salem Hadid;Hassan;SR;3;33_10-2017;Sahab Shop JT shop;Shops selling all products except SME & Convergent Pro;5;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+33_13223_10-2017;Helal Mefleh Alrabtah;Anas;SR;3;33_10-2017;Sahab Shop JT shop;Shops selling all products except SME & Convergent Pro;5;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+34_9049_11-2016;MARWAN IBRAHIM ABU  TOUQ;SAMEER;SR;3;34_11-2016;Marka JT shop;Shops selling all products;6;482;Group A - Res upgrade;18;ADSL Upgrade;16;Res/Pro;18_16;2;12
+35_11307_10-2017;Hassan Ali Ayasrah;Mutasem;SR;3;35_10-2017;Jarash JT shop;Shops selling all products except SME & Convergent Pro;3;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+35_11911_10-2017;Nathmi Ata Abed Alraheem;Husam;Shop Manager;1;35_10-2017;Jarash JT shop;Shops selling all products except SME & Convergent Pro;3;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;0
+35_13835_10-2017;Ahmad Jameel Bani Omer;Wafa;SR;3;35_10-2017;Jarash JT shop;Shops selling all products except SME & Convergent Pro;3;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+35_14766_10-2017;Asuad Amer AlTiti;Murad;SR;3;35_10-2017;Jarash JT shop;Shops selling all products except SME & Convergent Pro;3;70;New Work  2 ;1;ADSL;1;Pro;11.0;1;10
+35_14813_10-2017;Khaled Abidallah Al Kalaf;Gharam;SR;3;35_10-2017;Jarash JT shop;Shops selling all products except SME & Convergent Pro;3;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+36_11302_10-2017;Mohammad Abdelkader Ananbeh;Hassan;SR;3;36_10-2017;Ajloun JT shop;Shops selling all products except SME & Convergent Pro;3;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+36_11975_4-2017;Mahmoud Hussein Momani;Bassil;Shop Manager;1;36_4-2017;Ajloun JT shop;Shops selling all products except SME & Convergent Pro;3;1;pack 1 (Alo fixed 1);10;Fixed Line;10;Res;10_10;1;5
+36_13300_10-2017;Nazzal Eid Rabady;Rafid;SR;3;36_10-2017;Ajloun JT shop;Shops selling all products except SME & Convergent Pro;3;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;2;10
+37_11688_10-2017;Hussein Mohammad Alsaqer;Faisal;SR;3;37_10-2017;N. Shouneh JT shop;Shops selling all products except SME & Convergent Pro;3;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+41_10763_10-2017;Harb Yousef Ankeh;Jehad;Shop Manager;1;41_10-2017;Abdali  (JT);Shops selling all products;2;671;Revenue Target ;40;Wainak;13;Card;40_13;3;2
+41_13334_10-2017;Odeh Allah Mohammad Abu Lathua;Maha;SR;3;41_10-2017;Abdali  (JT);Shops selling all products;2;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+41_13362_1-2018;Hassan Namr Al-Dabbas;Ibtehal;SR;3;41_1-2018;Abdali  (JT);Shops selling all products;2;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;865
+41_13491_10-2017;Imad Mohammad Abanda;Fares;SR;3;41_10-2017;Abdali  (JT);Shops selling all products;2;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+41_13884_11-2016;Yacoub Saleh Saleh;Amal;SR;3;41_11-2016;Abdali  (JT);Shops selling all products;5;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+41_14476_10-2017;Ibrahim Saleh Al Shammri;Fatima;SR;3;41_10-2017;Abdali  (JT);Shops selling all products;2;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+44_11175_11-2016;Kamel Mohammad Al Manaseer;Mohammad;SR;3;44_11-2016;Al - Fuhais (JT);Shops selling all products except SME & Convergent Pro - Without Q;5;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;2;9
+44_11437_2-2017;Ramadan Abd Alqader Yaghi;Ahmad;Shop Manager;1;44_2-2017;Al - Fuhais (JT);Shops selling all products except SME & Convergent Pro;5;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;0
+44_15032_10-2017;Abdallah Barham El Shebli;Heba;SR;3;44_10-2017;Al - Fuhais (JT);Shops  selling all products and FTTH except SME & Convergent Pro;2;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+46_11579_10-2017;Mohammad Falah Al Sardi;Ali;SR;3;46_10-2017;Dear Ala'a  (JT);Shops selling all products except SME & Convergent Pro;2;7;Basic;10;Fixed Line;1;Pro;101.0;1;11
+48_11029_11-2017;Mahmoud Yousef Anekeh;Ahmad;Shop Manager;1;48_11-2017;Al-Rusifeh (JT);Shops selling all products except SME & Convergent Pro;5;1072;To (alo Unlimited)  unlimited + or to (New Pro fixed 2, 3, unlimited);121;Fixed VAS + Internet VAS + Fixed upgrade;16;Res/Pro;121_16;1;0
+48_11680_10-2017;Abdul Aziz Abdul Raheem ?AL - Ramahe;Suha;SR;3;48_10-2017;Al-Rusifeh (JT);Shops selling all products except SME & Convergent Pro;5;10117;Pro Conv ADSL 3 1Y_ON;124;Convergent Offer;1;Pro;1241.0;1;12
+48_11903_10-2017;Ahmad Mahmud Sadieah;Bassam;SR;3;48_10-2017;Al-Rusifeh (JT);Shops selling all products except SME & Convergent Pro;5;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;10
+5_11761_10-2017;Kalil Hasan Nofal;Ghassan;SR;3;5_10-2017;Zarqa King Hussien Street;Shops  selling all products with Sira;5;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;7
+5_12136_10-2017;Shehda Mohammad Alhmaidan;Aisha;SR;3;5_10-2017;Zarqa King Hussien Street;Shops  selling all products with Sira;5;10126;Conv Pro Orange 6 CC_ON;124;Convergent Offer;1;Pro;1241.0;1;0
+5_12768_2-2017;Mohammad Abd Elkarim Shehadeh;Ahmad;Shop Supervisor;2;5_2-2017;Zarqa King Hussien Street;Shops selling all products;6;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;133
+5_12884_11-2016;Entessar Ibraheem Saleh;Ala Al-Dien;Shop Manager;1;5_11-2016;Zarqa King Hussien Street;Shops selling all products;6;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;232
+5_14531_11-2016;Salah Salem Odeh;Eman;SR;3;5_11-2016;Zarqa King Hussien Street;Shops selling all products;6;10061;Family Net 16M+_OO;181;Mobile Convergent PM;10;Res;181_10;1;0
+5_14644_10-2017;Atallah Ali Rafaya;Hidaya;SR;3;5_10-2017;Zarqa King Hussien Street;Shops  selling all products with Sira;5;482;Group A - Res upgrade;18;ADSL Upgrade;16;Res/Pro;18_16;1;13
+5_14683_10-2017;Mahfouz Abdel Rahman Al Ramahi;Hala;SR;3;5_10-2017;Zarqa King Hussien Street;Shops  selling all products with Sira;5;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+5_14772_10-2017;Sari Amer AlOmarih;Ala;SR;3;5_10-2017;Zarqa King Hussien Street;Shops  selling all products with Sira;5;5;New Pro fixed 2;10;Fixed Line;1;Pro;101.0;1;0
+5_14890_10-2017;Wael Abdullah Alwaqfi;Sarah;SR;3;5_10-2017;Zarqa King Hussien Street;Shops  selling all products with Sira;5;5;New Pro fixed 2;10;Fixed Line;1;Pro;101.0;2;0
+5_15002_11-2016;Farhat Aref Hussein;Mohammad;SR;3;5_11-2016;Zarqa King Hussien Street;Shops selling all products;6;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+5_15084_10-2017;Moh'd Amin Jawad Altaher;Ayah;SR;3;5_10-2017;Zarqa King Hussien Street;Shops  selling all products with Sira;5;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+5_15089_10-2017;Hani Shafi Abu Jalboush;Ahmad;SR;3;5_10-2017;Zarqa King Hussien Street;Shops  selling all products with Sira;5;1622;My business Mobile 10 1Y_ON;124;Convergent Offer;1;Pro;1241.0;1;0
+55_11681_11-2016;Moh'dadeeb Kasem Alqahwaji;Ali;SR;3;55_11-2016;Bani Kenaneh (JT);Shops selling all products;3;8;2 nd line;10;Fixed Line;1;Pro;101.0;1;5
+55_14648_10-2017;Kamal Khaleel Salem;Naser;SR;3;55_10-2017;Bani Kenaneh (JT);Shops selling all products except SME & Convergent Pro;3;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+56_14571_10-2017;Mahmoud Elayan Gharaibeh;Amer;SR;3;56_10-2017;Al - Kora (JT);Shops selling all products except SME & Convergent Pro;3;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+56_14728_10-2017;Saleh Mahmoud Al Awneh;Yamen;SR;3;56_10-2017;Al - Kora (JT);Shops selling all products except SME & Convergent Pro;3;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+57_11989_10-2017;Essa Ahmad Al-Shboul;Jamal;SR;3;57_10-2017;Al-Ramtha (JT);Shops selling all products except SME & Convergent Pro;3;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;10
+57_12559_10-2017;Oqlah Mohammed Maghairah;Nidal;SR;3;57_10-2017;Al-Ramtha (JT);Shops selling all products except SME & Convergent Pro;3;7;Basic;10;Fixed Line;1;Pro;101.0;1;11
+6_11760_10-2017;Sallam Suleiman Abu Ghariqanah;Ayed;Shop Supervisor;2;6_10-2017;Aqaba Center;Shops  selling all products with Sira;4;1072;To (alo Unlimited)  unlimited + or to (New Pro fixed 2, 3, unlimited);121;Fixed VAS + Internet VAS + Fixed upgrade;16;Res/Pro;121_16;1;0
+6_12310_10-2017;Nasser Abdul Salam Al-Badri;Hiba;SR;3;6_10-2017;Aqaba Center;Shops  selling all products with Sira;4;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+6_14154_10-2017;Abd Al Hadi Saleh Al Tayyar;Radi;SR;3;6_10-2017;Aqaba Center;Shops  selling all products with Sira;4;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+6_14622_10-2017;Walid Salem Al Massadeh;Wajeeh;SR;3;6_10-2017;Aqaba Center;Shops  selling all products with Sira;4;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+6_14967_10-2017;Nawaf Abdallah Odeh;Bashar;SR;3;6_10-2017;Aqaba Center;Shops  selling all products with Sira;4;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;7
+6_15043_10-2017;Fayez Yacob Al Mahasneh;Dina;SR;3;6_10-2017;Aqaba Center;Shops  selling all products with Sira;4;87;Pro Work 1 up to 2 M;1;ADSL;1;Pro;11.0;1;7
+62_11703_10-2017;Mohammad Basheer Al-Amarat;Khaled;SR;3;62_10-2017;Wadi Mousa /Petra (JT);Shops selling all products except SME & Convergent Pro - Without Q;4;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+63_11095_10-2017;Ahmad Ibrahim Shehinalbanwi;Munther;SR;3;63_10-2017;Al - Qaser  (JT);Shops selling all products except SME & Convergent Pro;4;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+63_11632_3-2017;Jazaa Nazal Al -Shawawreh;Bahjat;Shop Manager;1;63_3-2017;Al - Qaser  (JT);Shops selling all products except SME & Convergent Pro - Without Q;4;1403;Orange Max;1;ADSL;10;Res;1_10;1;22
+64_10864_10-2017;Farhan Essa Al-Ajarmeh;Amal;SR;3;64_10-2017;Tafeileh  (JT);Shops selling all products except SME & Convergent Pro;4;6;New Pro fixed unlimited;10;Fixed Line;1;Pro;101.0;1;0
+64_11887_10-2017;Nayef Eid Al-Bdour;Maysoon;SR;3;64_10-2017;Tafeileh  (JT);Shops selling all products except SME & Convergent Pro;4;1142;Pro Work 4 up to 80 M;1;ADSL;1;Pro;11.0;1;30
+64_12198_10-2017;Salman Salameh Al Mrayat;Arij;SR;3;64_10-2017;Tafeileh  (JT);Shops selling all products except SME & Convergent Pro;4;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+64_14970_11-2016;Hamad Khlife Al Qatamin;Areen;SR;3;64_11-2016;Tafeileh  (JT);Shops selling all products except SME & Convergent Pro - Without Q;4;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+64_15101_10-2017;Salem Ahmad Bolman Sawalqah;Hamza;SR;3;64_10-2017;Tafeileh  (JT);Shops selling all products except SME & Convergent Pro;4;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+73_13349_10-2017;Jamal Riyad Haddad;Mais;SR;3;73_10-2017;Integrated Gardens;Shops  selling all products and FTTH with Sira shampions;2;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;10
+73_14149_11-2016;Zaki Salem Ammarin;Dana;SR;3;73_11-2016;Integrated Gardens;Shops selling all products;2;8;2 nd line;10;Fixed Line;1;Pro;101.0;1;5
+73_14647_2-2017;Waddah Mahd Al Belbeisi;Farah;SR;3;73_2-2017;Integrated Gardens;Shops  selling all products and FTTH;2;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+73_15058_10-2017;Ahmad Sulieman Al Ghasawneh;Madleen;SR;3;73_10-2017;Integrated Gardens;Shops  selling all products and FTTH with Sira shampions;2;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+8_11473_10-2017;Ahmad Hussain Al-Deiyat;Fuad;SR;3;8_10-2017;Irbid University Street;Shops selling all products;3;4;New Pro fixed 1;10;Fixed Line;1;Pro;101.0;1;11
+8_12913_4-2017;Hasan Saleh Al Refai;Ali;Shop Supervisor;2;8_4-2017;Irbid University Street;Shops selling all products;3;1060;Mobile Army NA;16;Mobile Lines;11;ARMY;16_11;1;1
+8_14627_11-2016;Zaid Muflih Al Gharaibeh;Sarah;SR;3;8_11-2016;Irbid University Street;Shops selling all products;3;482;Group A - Res upgrade;18;ADSL Upgrade;16;Res/Pro;18_16;1;12
+8_14651_10-2017;Ahmad Mohammad Al Zoubi;Fouad;SR;3;8_10-2017;Irbid University Street;Shops selling all products;3;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+8_14933_10-2017;Ahmad Mohammad AL Omari;Maha;SR;3;8_10-2017;Irbid University Street;Shops selling all products;3;8;2 nd line;10;Fixed Line;1;Pro;101.0;1;5
+8_15048_10-2017;Mahmood Mohammad Sheyab;Mohammad;SR;3;8_10-2017;Irbid University Street;Shops selling all products;3;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+80_11991_10-2017;Ali Olayan Al-Qudah;Mohammad;SR;3;80_10-2017;Shafa Badran;Shops selling all products;5;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+80_12730_10-2017;Mohammad Waleed Abdelqader Al-Khalil;Mamoon;Shop Manager;1;80_10-2017;Shafa Badran;Shops selling all products;5;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;0
+80_13271_10-2017;issa Rajab Yamzash;Anas;SR;3;80_10-2017;Shafa Badran;Shops selling all products;5;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+81_12640_11-2017;Marwan Badawi Jabasini;Hiba;Shop Manager;1;81_11-2017;Boulevard shop;Shops  selling all products and FTTH except SME & Convergent Pro;2;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;344
+81_13330_11-2016;Tawfeeq Ahmad Khaireddin;Ra'ef;SR;3;81_11-2016;Boulevard shop;Shops selling all products;2;5;New Pro fixed 2;10;Fixed Line;1;Pro;101.0;1;11
+81_14828_2-2017;Mohd Mesbah Hamdi Al Khalili;Rashad;SR;3;81_2-2017;Boulevard shop;Shops  selling all products and FTTH except SME & Convergent Pro;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;6;1
+81_14937_11-2017;Abdelhakim Yahya Al Rosan;Fedora;SR;3;81_11-2017;Boulevard shop;Shops  selling all products and FTTH except SME & Convergent Pro;2;7;Basic;10;Fixed Line;1;Pro;101.0;1;0
+82_13366_9-2017;Atef Ahmad Al Yousef;Zahra;Shop Supervisor;2;82_9-2017;Flagship Shop;Flagship;2;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;1897
+82_14657_10-2017;Mohammad Tahseen Sukarieh;Maher;SR;3;82_10-2017;Flagship Shop;Flagship;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+82_14714_10-2017;Aimen Tawfiq Tal;Hala;SR;3;82_10-2017;Flagship Shop;Flagship;2;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+82_14938_10-2017;Yousef Ahmad Shihaltough;Sanad;SR;3;82_10-2017;Flagship Shop;Flagship;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+82_14939_10-2017;Durgham Wasef Abdul Hadi;Mahmoud;SR;3;82_10-2017;Flagship Shop;Flagship;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;2;1
+82_14940_10-2017;Ghazi Ahmad Al - Eraidi;Huda;SR;3;82_10-2017;Flagship Shop;Flagship;2;6;New Pro fixed unlimited;10;Fixed Line;1;Pro;101.0;1;11
+82_14943_10-2017;Hussein Abdelraheem Alaqrabawi;Manar;SR;3;82_10-2017;Flagship Shop;Flagship;2;92;Pro Work 2 up to 4 M;1;ADSL;1;Pro;11.0;1;9
+82_15083_10-2017;Saqer Jacoub Saqer;Ahmad;SR;3;82_10-2017;Flagship Shop;Flagship;2;7;Basic;10;Fixed Line;1;Pro;101.0;1;11
+82_15126_1-2018;Khaled Hasan Albaw;Rasha;SR;3;82_1-2018;Flagship Shop;Flagship;2;6;New Pro fixed unlimited;10;Fixed Line;1;Pro;101.0;1;1099
+88_14161_11-2016;Jamil Mohammad Al Thneibat;Alia;SR;3;88_11-2016;City Center;Shops selling all products;2;70;New Work  2 ;1;ADSL;1;Pro;11.0;1;7
+89_12751_6-2017;Ghaleb Mohammad Salameh;Saleh;Shop Manager;1;89_6-2017;Elite Shop;Elite Shop;2;1062;Revenue Target;23;Mobile Handsets & Accessories;24;Stand alone;23_24;1;0
+89_12999_10-2017;Sayyed Ali Al Otaibi;Fadi;SR;3;89_10-2017;Elite Shop;Elite Shop;2;7;Basic;10;Fixed Line;1;Pro;101.0;1;11
+89_13179_10-2017;Ahmad Amer Omari;Ala'a;SR;3;89_10-2017;Elite Shop;Elite Shop;2;8;2 nd line;10;Fixed Line;1;Pro;101.0;1;5
+89_13700_10-2017;Abdel Rahim Suleiman Alomari;Sadam;SR;3;89_10-2017;Elite Shop;Elite Shop;2;1403;Orange Max;1;ADSL;10;Res;1_10;1;13
+89_14068_10-2017;Samir Mustafa Khattab;Ahmed;SR;3;89_10-2017;Elite Shop;Elite Shop;2;5;New Pro fixed 2;10;Fixed Line;1;Pro;101.0;1;11
+89_14070_10-2017;Munther Mustafa Al Ghoul;Razan;SR;3;89_10-2017;Elite Shop;Elite Shop;2;1143;Pro Work4 up to 80 M 2Y;1;ADSL;1;Pro;11.0;1;28
+89_14089_10-2017;Walid Ahmad AbuZayyad;Yaman;SR;3;89_10-2017;Elite Shop;Elite Shop;2;2601;My business Mobile 20_ON;124;Convergent Offer;1;Pro;1241.0;1;0
+89_14866_10-2017;Zeyad Mohammad AlRawashdeh;Tariq;SR;3;89_10-2017;Elite Shop;Elite Shop;2;986; All PAYG include (JEA Orange 7,JEA Orange 6);16;Mobile Lines;2;PAYG;162.0;1;1
+89_14877_10-2017;Wajeeh Ibrahim Safi;Dania;SR;3;89_10-2017;Elite Shop;Elite Shop;2;8;2 nd line;10;Fixed Line;1;Pro;101.0;1;5
+89_14878_10-2017;Ahmad Musbah AlRefai;Leena;SR;3;89_10-2017;Elite Shop;Elite Shop;2;1403;Orange Max;1;ADSL;10;Res;1_10;1;10
+89_14895_10-2017;Adeeb Bilal Naqwar;Yousef;SR;3;89_10-2017;Elite Shop;Elite Shop;2;7;Basic;10;Fixed Line;1;Pro;101.0;1;11
+89_15005_10-2017;Mahmoud Moh'd Shboul;Fardous;SR;3;89_10-2017;Elite Shop;Elite Shop;2;108;Pro Fiber 50M 2Y Promo;201;FTTH;1;Pro;2011.0;1;0
+89_15018_10-2017;Jamil Mahmoud Tawalbeh;Hiba;SR;3;89_10-2017;Elite Shop;Elite Shop;2;1403;Orange Max;1;ADSL;10;Res;1_10;1;10
+89_9169_10-2017;HAKAM MUFADI ABU SONDUS;MAHMOUD;SR;3;89_10-2017;Elite Shop;Elite Shop;2;93;Pro Work 3 up to 16 M;1;ADSL;1;Pro;11.0;1;12
+89_9273_10-2017;Fayez Khair Eddien Abukhass;Mohammad;SR;3;89_10-2017;Elite Shop;Elite Shop;2;1404;Orange Max 2Y;1;ADSL;10;Res;1_10;1;29

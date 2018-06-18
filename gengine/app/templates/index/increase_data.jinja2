@@ -1,0 +1,108 @@
+{% extends "../layout/user_layout.jinja2" %}
+{% block body %}
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Increase Values</a>
+        </li>
+        <li class="breadcrumb-item active">users</li>
+      </ol>
+
+<h2>Increase Users Value</h2>
+<span><b>Upload your Data</b><span>
+<form action="{{request.route_url('increase_data',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data><p>
+
+<div class="form-group" style="width: 25%;">
+	<label for="achievement_id">Select achievement: (required) </label>
+	<select class="form-control" id="achivement_id" name="achievement_id" >
+	    {% for achievement in achievements %}
+	        <option value={{achievement["id"]}}>{{ achievement["name"] }}</option>>
+	    {% endfor %}
+	</select>
+</div>
+
+<input class="btn" type=file name=file><input class="btn btn-primary" type=submit value=Upload name=upload>
+</form>
+
+{% if keys_data %}
+<form action="{{request.route_url('increase_data',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
+<div style="display:inline-flex;width:100%;">
+	<div class="form-group" style="width: 65%;margin-right:10%;">
+	    <label for="user_id">Select user id: (required) </label>
+	    <select class="form-control" id="user_id" name="user_id" >
+	    {% for key in keys_data %}
+	        <option>{{ key }}</option>
+	    {% endfor %}
+	    </select>
+	</div>
+	<div class="form-group" style="width: 65%;margin-right:10%;">
+	    <label for="variable">Select user variable: (required) </label>
+	    <select class="form-control" id="variable" name="variable" >
+	    {% for key in keys_data %}
+	        <option>{{ key }}</option>
+	    {% endfor %}
+	    </select>
+	</div>
+</div>
+<div>
+    <input type=submit class="btn btn-primary" value="Submit Data">
+</div>
+</form>
+{% endif %}
+<br>
+<p id="showMore"><b>Or click to Add Value By User</b><p>
+<div id="showMoreDiv">
+<form action="{{request.route_url('increase_data',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
+<div style="display:inline-flex;width:100%;">
+	<div class="form-group" style="width: 25%;margin-right:10%;">
+	    <label for="user_id_one">Select user id: (required) </label>
+	    <select class="form-control" id="user_id_one" name="user_id" >
+	    <option value=""></option>
+	    {% for key in keys %}
+	        <option>{{ key }}</option>
+	    {% endfor %}
+	    </select>
+	</div>
+	<div class="form-group" style="width: 25%;margin-right:10%;">
+	    <label for="variable_one">Select user variable: (required) </label>
+	    <select class="form-control" id="variable_one" name="variable" >
+	    <option value=""></option>
+	    {% for key in keys %}
+	        <option>{{ key }}</option>
+	    {% endfor %}
+	    </select>
+	</div>
+</div>
+<div class="form-group">
+	<label id="label_user_id" for="user_id_value">USER ID</label>
+	<input class="form-control" type="text" id="user_id_value" name="user_id_value" style="width:25%">
+</div>
+<div class="form-group">
+	<label id="label_user_value" for="value">USER VALUE</label>
+	<input class="form-control" type="number" id="value" name="value" style="width:25%">
+</div>
+<div>
+	<input class="btn btn-primary" type="submit" value="Add Value">
+</div>
+</form>
+</div>
+
+{% endblock %}
+{% block scripts %}
+<script>
+
+$( document ).ready(function() {
+    $("#user_id_one").on('change', function() {
+  		$("#label_user_id").html("USER ID <b style='color:#007bff;'>"+this.value+"</b>");
+	})
+	$("#variable_one").on('change', function() {
+  		$("#label_user_value").html("USER VALUE <b style='color:#007bff;'>"+this.value+"</b>");
+	})
+
+	$("#showMoreDiv").hide()
+	$("#showMore").click(function(){
+		$("#showMoreDiv").toggle()
+	})
+});
+</script>
+
+{% endblock %}

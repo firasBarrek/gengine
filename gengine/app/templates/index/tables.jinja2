@@ -1,0 +1,26 @@
+{% extends "../layout/user_layout.jinja2" %}
+{% block body %}
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Leaderboard</a>
+        </li>
+        <li class="breadcrumb-item active">Achievement</li>
+      </ol>
+
+<span><b>View Leaderboard Achievement</b><span>
+<form action="{{request.route_url('tables',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data><p>
+
+<div class="form-group" style="width: 25%;">
+	<label for="achievement_id">Select achievement: (required) </label>
+	<select class="form-control" id="achivement_id" name="achievement_id" onchange="this.form.submit()">
+	    {% for achievement in achievements %}
+	        <option value={{achievement["id"]}}>{{ achievement["name"] }}</option>>
+	    {% endfor %}
+	</select>
+</div>
+</form>
+
+
+{% endblock %}
+{% block scripts %}
+{% endblock %}

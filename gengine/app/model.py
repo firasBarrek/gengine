@@ -470,12 +470,9 @@ class User(ABase):
 			index_user_id = keys.index(user_id)
 			index_user_region = keys.index(user_region)
 			index_user_city = keys.index(user_city)
-			i = 6
 			for line in f.readlines():
-				i = i+1
 				data = line.rstrip().split(";")
 				user = User()
-				user.id = i
 				user.region = data[index_user_region]
 				user.city = data[index_user_city]
 				additional_public_data = {}
@@ -819,23 +816,24 @@ class Value(ABase):
 		at_datetime=None
 		#print('variable_name',variable_name)
 		#print('user_id',user_id)
-		variable = Variable.get_variable_by_name(variable_name)
-		dt = Variable.get_datetime_for_tz_and_group('UTC', variable["group"], at_datetime=at_datetime)
+		#variable = Variable.get_variable_by_name(variable_name)
+		#dt = Variable.get_datetime_for_tz_and_group('UTC', variable["group"], at_datetime=at_datetime)
 		#print('variable',variable)
 		with open(dir_name) as f:
 			keys = f.readline().rstrip().split(";")
 			index_variable_name = keys.index(variable_name)
 			index_user_id = keys.index(user_id)
 			for line in f.readlines():
-				#print("okkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
 				data = line.rstrip().split(";")
 				data_value = data[index_variable_name]
 				data_user_id = data[index_user_id]
 				res_user_id = DBSession.query(t_users).filter(
 							  t_users.c.additional_public_data[user_id].astext == data_user_id
 						  ).one()
-				#print('res_user_id',res_user_id[0])
-				#print('data_value',data_value)
+				user = {"id":res_user_id[0],"timezone":"UTC"}
+				Value.increase_value(variable_name, user, data_value, key, at_datetime)
+
+				"""
 				condition = and_(t_values.c.datetime == dt,
 								 t_values.c.variable_id == variable["id"],
 								 t_values.c.user_id == res_user_id[0],
@@ -847,8 +845,17 @@ class Value(ABase):
 											   "value": data_value}))
 				Variable.invalidate_caches_for_variable_and_user(variable_id=variable["id"], user_id=res_user_id[0], dt = dt)
 				new_value = DBSession.execute(select([t_values.c.value, ]).where(condition)).scalar()
-				#Value.increase_value()
-				#print('new_value',new_value)
+				"""
+		return 'new_value'
+
+	@classmethod
+	def increaseByValue(cls, variable_name,user_id, user_id_value, value):
+		key=''
+		at_datetime=None
+		res_user_id = DBSession.query(t_users).filter(
+						t_users.c.additional_public_data[user_id].astext == user_id_value).one()
+		user = {"id":res_user_id[0],"timezone":"UTC"}
+		Value.increase_value(variable_name, user, value, key, at_datetime)
 		return 'new_value'
 
 class AchievementCategory(ABase):
@@ -867,6 +874,11 @@ class Achievement(ABase):
 
 	def __unicode__(self, *args, **kwargs):
 		return self.name + " (ID: %s)" % (self.id,)
+
+
+	@classmethod
+	def get_all_achievements(cls):
+		return DBSession.execute(t_achievements.select()).fetchall()
 
 	@classmethod
 	@cache_general.cache_on_arguments()
@@ -1038,6 +1050,25 @@ class Achievement(ABase):
 					} for r in Achievement.get_achievement_properties(achievement["id"],i)}
 			} for i in range(1,max_level_included+1)}
 		return out
+
+	@classmethod
+	def get_leaderbord_by_relevance(cls,achievement_id,relevance):
+		leaderboard = []
+		achievement_date=None
+		achievement = Achievement.get_achievement(achievement_id)
+		goals = Goal.get_goals(achievement["id"])
+		users = []
+		if relevance["type"]=="City":
+			users += [x.id for x in DBSession.execute(select([t_users.c.id,]).where(t_users.c.city==relevance["value"])).fetchall()]
+		elif relevance["type"]=="Region":
+			users += [x.id for x in DBSession.execute(select([t_users.c.id,]).where(t_users.c.region==relevance["value"])).fetchall()]
+		elif relevance["type"] == "Global":
+			users += [x.id for x in DBSession.execute(select([t_users.c.id,])).fetchall()]
+		set(users)
+		print("heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeere i m")
+		for goal in goals:
+			leaderboard = Goal.get_leaderboard(goal, achievement_date, users)
+		return leaderboard
 
 	@classmethod
 	def get_leaderbord_by_achievement(cls,achievement_id):

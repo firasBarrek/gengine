@@ -27,4 +27,6 @@ def config_routes(config):
     config.add_route('goal','/goal')
     config.add_route('dashbord','/dashbord')
     config.add_route('leaderboard','/leaderboard')
+    config.add_route('increase_data','/increase_data')
+    config.add_route('tables','/tables')
     
