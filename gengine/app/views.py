@@ -133,6 +133,8 @@ def leaderboard(request):
                 return {'result':result,'winner':result[0],'exist':sort_res,'sort_res':myarray,'params':params,'sorted_by':sorted_by["type"],'achievement':achievement}
     else:
         result = Achievement.get_leaderbord_by_achievement(achievement_id)
+        print(result[0].keys())
+        print(result[0]["user"]["additional_public_data"].keys())
         return {'result':result,'winner':result[0],'params':params,'sorted_by':sorted_by["type"],'achievement':achievement}
 
 @view_config(route_name="increase_data",renderer="gengine.app:templates/index/increase_data.jinja2")
