@@ -13,8 +13,9 @@
 <div class="form-group" style="width: 25%;">
 	<label for="achievement_id">Select achievement: (required) </label>
 	<select class="form-control" id="achivement_id" name="achievement_id" onchange="this.form.submit()">
+	<option value=""></option>
 	    {% for achievement in achievements %}
-	        <option value={{achievement["id"]}}>{{ achievement["name"] }}</option>>
+	        <option value={{achievement["id"]}}>{{ achievement["name"] }}</option>
 	    {% endfor %}
 	</select>
 </div>

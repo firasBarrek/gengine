@@ -9,7 +9,9 @@
       </ol>
       <div class="row" style="margin-left:1%">
       <b>Start Date {{achievement["valid_start"]}} / End Date {{achievement["valid_end"]}}</b>
+      <span style="margin-left:50%;">Created at <b>{{achievement["created_at"].date()}}</b></span>
       </div>
+      <br>
       <div class="row" style="float:right;margin-right:2%">
       <div style="display:inline-flex;">
       <form action="{{request.route_url('leaderboard',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
@@ -35,7 +37,7 @@
       <br>
       <br>
       <div class="row" style="margin-left:1%">
-        <h4>The winner is <b>{{winner.user.additional_public_data.INTERV_LAST_NAME}} {{winner.user.additional_public_data.INTERV_FIRST_NAME}}</b><img src="{{ request.static_path('gengine.app:static/img/cup.jpg') }}" width="70" heigth="70"/></h4>
+        <h4>The winner is <b style="color:#D2691E;">{{winner.user.additional_public_data.INTERV_LAST_NAME}} {{winner.user.additional_public_data.INTERV_FIRST_NAME}}</b><img src="{{ request.static_path('gengine.app:static/img/cup.jpg') }}" width="70" heigth="70"/></h4>
       </div>
           <div class="table-responsive">
             <table class="table table-bordered" id="example" width="100%" cellspacing="0">

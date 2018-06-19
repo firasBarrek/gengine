@@ -93,7 +93,7 @@ def goal(request):
         goal_condition = request.POST["goal_condition"]
         Variable.add_variable(variable)
         Goal.add_goal(goal_name,goal_condition,goal_goal,achievement_id)
-        Value.increase(variable,user_id,dir_name)
+        Value.increase(achievement_id,variable,user_id,dir_name)
         return HTTPFound(request.route_url('leaderboard',_query=params))
     else:
         with open(dir_name) as f:
@@ -159,13 +159,16 @@ def increase_data(request):
             variable = request.POST["variable"]
             value = request.POST["value"]
             user_id_value = request.POST["user_id_value"]
-            Value.increaseByValue(variable,user_id,user_id_value,value)
+            achievement_id = request.POST['achievement_id']
+            res_id_user = User.get_by_id(user_id,user_id_value)
+            Value.increaseByValue(variable,res_id_user,value)
+            Achievement.update_user_value(achievement_id,res_id_user)
             return HTTPFound(request.route_url('increase_data',_query=params))
         else:
             user_id = request.POST["user_id"]
             variable = request.POST["variable"]
             achievement_id = params["id"]
-            Value.increase(variable,user_id,dir_name)
+            Value.increase(achievement_id,variable,user_id,dir_name)
             return HTTPFound(request.route_url('leaderboard',_query=params))
     else:
         with open(dir_name) as f:
@@ -308,6 +311,7 @@ def _get_progress(achievements_for_user, requesting_user):
 
     def ea(achievement, achievement_date, execute_triggers):
         try:
+            print("**********************************ea --> execute triggers*****************************************",execute_triggers)
             return Achievement.evaluate(achievements_for_user, achievement["id"], achievement_date, execute_triggers=execute_triggers)
         except FormularEvaluationException as e:
             return { "error": "Cannot evaluate formular: " + e.message, "id" : achievement["id"] }
@@ -447,6 +451,7 @@ def add_Achivement(request):
     achievement.valid_start = request.POST["achievement_valid_start"]
     achievement.valid_end = request.POST["achievement_valid_end"]
     achievement.maxlevel = request.POST["achievement_maxlevel"]
+    achievement.relevance = "global"
     achievement.evaluation_timezone = "UTC"
     achievement.achievementcategory_id = achievementCategory.id
     

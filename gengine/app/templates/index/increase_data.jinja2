@@ -8,7 +8,8 @@
       </ol>
 
 <h2>Increase Users Value</h2>
-<span><b>Upload your Data</b><span>
+<p id="showMoreMulti"><b>Click to upload your Data</b><p>
+<div id="showMoreDivMulti">
 <form action="{{request.route_url('increase_data',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data><p>
 
 <div class="form-group" style="width: 25%;">
@@ -19,10 +20,13 @@
 	    {% endfor %}
 	</select>
 </div>
+<div>
+		<input class="btn" type=file name=file>
+		<input class="btn btn-primary" type=submit value=Upload name=upload>
 
-<input class="btn" type=file name=file><input class="btn btn-primary" type=submit value=Upload name=upload>
+</div>
 </form>
-
+</div>
 {% if keys_data %}
 <form action="{{request.route_url('increase_data',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
 <div style="display:inline-flex;width:100%;">
@@ -53,6 +57,14 @@
 <div id="showMoreDiv">
 <form action="{{request.route_url('increase_data',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
 <div style="display:inline-flex;width:100%;">
+	<div class="form-group" style="width: 25%;margin-right:10%;">
+		<label for="achievement_id">Select achievement: (required) </label>
+		<select class="form-control" id="achivement_id" name="achievement_id" >
+		    {% for achievement in achievements %}
+		        <option value={{achievement["id"]}}>{{ achievement["name"] }}</option>>
+		    {% endfor %}
+		</select>
+	</div>
 	<div class="form-group" style="width: 25%;margin-right:10%;">
 	    <label for="user_id_one">Select user id: (required) </label>
 	    <select class="form-control" id="user_id_one" name="user_id" >
@@ -96,6 +108,11 @@ $( document ).ready(function() {
 	})
 	$("#variable_one").on('change', function() {
   		$("#label_user_value").html("USER VALUE <b style='color:#007bff;'>"+this.value+"</b>");
+	})
+
+	$("#showMoreDivMulti").hide()
+	$("#showMoreMulti").click(function(){
+		$("#showMoreDivMulti").toggle()
 	})
 
 	$("#showMoreDiv").hide()
