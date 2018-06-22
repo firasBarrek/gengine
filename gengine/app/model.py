@@ -968,7 +968,6 @@ class Achievement(ABase):
 	@classmethod
 	def get_level(cls, user_id, achievement_id, achievement_date):
 		"""get the current level of the user for this achievement."""
-		print("**********************heeeeeeeeeeeeeeeeeeeeeee****get_level****eeeeeeeeeeeeeeeeeere**************")
 		def generate():
 			q = select([t_achievements_users.c.level,
 						t_achievements_users.c.achievement_date,
@@ -1154,78 +1153,15 @@ class Achievement(ABase):
 
 		return goal_eval
 
-		"""
-		def generate():
+	@classmethod
+	def get_achievement_max_value(cls, achievement_id):
+		achievement = Achievement.get_achievement(achievement_id)
+		goals = Goal.get_goals(achievement_id)
+		for goal in goals:
+			goal_goal = evaluate_value_expression(goal["goal"], {"level" : 1})
+		maxValue = achievement["maxlevel"] * int(goal_goal)
+		return maxValue
 
-			achievement = Achievement.get_achievement(achievement_id)
-
-			users = []
-			if relevance=="city":
-				user_city = DBSession.execute(select([t_users.c.city]).where(t_users.c.id==user_id)).fetchone()
-				users += [x.id for x in DBSession.execute(select([t_users.c.id,]).where(t_users.c.city==user_city["city"])).fetchall()]
-			elif relevance=="region":
-				user_region = DBSession.execute(select([t_users.c.region]).where(t_users.c.id==user_id)).fetchone()
-				users += [x.id for x in DBSession.execute(select([t_users.c.id,]).where(t_users.c.region==user_region["region"])).fetchall()]
-			elif relevance=="groups":
-				user_group = DBSession.execute(select([t_users_groups.c.group_id]).where(t_users_groups.c.user_id==user_id)).fetchone()
-				users += [x.user_id for x in DBSession.execute(select([t_users_groups.c.user_id,]).where(t_users_groups.c.group_id==user_group["group_id"])).fetchall()]
-			elif relevance=="friends":
-				users += [x["to_id"] for x in DBSession.execute(select([t_users_users.c.to_id,], t_users_users.c.from_id==user_id)).fetchall()]
-			elif relevance == "global":
-				users += [x.id for x in DBSession.execute(select([t_users.c.id,])).fetchall()]
-
-			#user_has_level = Achievement.get_level_int(user_id, achievement["id"], achievement_date)
-			#user_wants_level = min((user_has_level or 0)+1, achievement["maxlevel"])
-
-			goal_evals={}
-			all_goals_achieved = True
-
-			user = User.get_user(user_id)
-
-			goals = Goal.get_goals(achievement["id"])
-			for goal in goals:
-				goal_eval = Goal.get_goal_eval_cache(goal["id"], achievement_date, user_id)
-				if not goal_eval:
-					Goal.evaluate(goal, achievement, achievement_date, user, user_wants_level,None, execute_triggers=True)
-					goal_eval = Goal.get_goal_eval_cache(goal["id"], achievement_date, user_id)
-
-				goal_eval["leaderboard"] = Goal.get_leaderboard(goal, achievement_date, users)
-				own_filter = list(filter(lambda x: x["user"]["id"] == user_id, goal_eval["leaderboard"]))
-				if len(own_filter)>0:
-					goal_eval["user_position"] = own_filter[0]["position"]
-				else:
-					goal_eval["user_position"] = None
-
-				goal_evals[goal["id"]]=goal_eval
-				if not goal_eval["achieved"]:
-					all_goals_achieved = False
-
-			if all_goals_achieved and user_has_level < achievement["maxlevel"]:
-
-				update_connection().execute(t_achievements_users.insert().values({
-					"user_id" : user_id,
-					"achievement_id" : achievement["id"],
-					"achievement_date" : achievement_date,
-					"level" : user_wants_level
-				}))
-
-				#invalidate getter
-				cache_achievements_users_levels.delete("%s_%s_%s" % (user_id,achievement_id,achievement_date))
-
-				user_has_level = user_wants_level
-				user_wants_level = user_wants_level+1
-
-				Goal.clear_goal_caches(user_id, [(g["goal_id"],achievement_date) for g in goal_evals.values()])
-				#the level has been updated, we need to do recursion now...
-				#but only if there are more levels...
-				if user_has_level < achievement["maxlevel"]:
-					goal_eval = generate()
-
-			return goal_eval
-
-		#TODO ACHIEVEMENT
-		return cache_achievement_eval.get_or_create("%s_%s_%s" % (user_id,achievement_id,achievement_date),generate)
-		"""
 
 	@classmethod
 	def evaluate(cls, user, achievement_id, achievement_date, execute_triggers=True):
@@ -1329,7 +1265,6 @@ class Achievement(ABase):
 				})
 
 			if new_level_output is not None: #if we reached a new level in this recursion step, add the previous levels rewards and properties
-				print("************************************new_level_output 3************************************",new_level_output)
 				output["new_levels"][str(user_has_level)]=new_level_output
 
 			return output
@@ -1494,6 +1429,32 @@ class AchievementReward(ABase):
 	@classmethod
 	def get_achievement_reward(cls, achievement_reward_id):
 		return DBSession.execute(t_achievements_rewards.select(t_achievements_rewards.c.id==achievement_reward_id)).fetchone()
+
+	@classmethod
+	def get_rewards(cls, achievement_id, achievement_reward_id):
+		return DBSession.execute(t_achievements_rewards.select().where(and_(t_achievements_rewards.c.reward_id==achievement_reward_id,
+									t_achievements_rewards.c.achievement_id==achievement_id))).fetchall()
+		#return DBSession.execute(t_achievements_rewards.select(t_achievements_rewards.c.reward_id==achievement_reward_id and t_achievements_rewards.c.achievement_id==achievement_id)).fetchall()
+
+	def create_achievement_rewards(achievement_id, value, level):
+		achievement_reward = AchievementReward()
+		achievement_reward.achievement_id = achievement_id
+		achievement_reward.reward_id = 6
+		achievement_reward.value = value
+		achievement_reward.from_level = level
+		DBSession.add(achievement_reward)
+		DBSession.flush()
+		return achievement_reward
+
+	def create_achievement_rewards_badges(achievement_id, value, level):
+		achievement_reward = AchievementReward()
+		achievement_reward.achievement_id = achievement_id
+		achievement_reward.reward_id = 1
+		achievement_reward.value = value
+		achievement_reward.from_level = level
+		DBSession.add(achievement_reward)
+		DBSession.flush()
+		return achievement_reward
 
 class AchievementUser(ABase):
 	"""Relation between users and achievements, contains level and updated_at date"""
@@ -1797,8 +1758,6 @@ class Goal(ABase):
 																  t_goal_evaluation_cache.c.user_id==user_id,
 																  t_goal_evaluation_cache.c.achievement_date==achievement_date))
 		cache = DBSession.execute(cache_query).fetchone()
-		print("************************************set goal eval achieved**********************************",achieved)
-		print("************************************set goal eval value**********************************",value)
 		if not cache:
 			q = t_goal_evaluation_cache.insert()\
 									   .values({"user_id":user_id,
@@ -1809,7 +1768,6 @@ class Goal(ABase):
 			update_connection().execute(q)
 		elif cache["value"]!=value or cache["achieved"]!=achieved:
 			#update
-			print("************************************set goal update**********************************",value)
 			q = t_goal_evaluation_cache.update()\
 									   .where(and_(t_goal_evaluation_cache.c.goal_id==goal["id"],
 												   t_goal_evaluation_cache.c.user_id==user_id,

@@ -1,6 +1,7 @@
 
 def config_routes(config):
     config.add_route('get_progress', '/progress/{user_id}')
+    config.add_route('progress_users','/progress_users/{achievement_id}')
     config.add_route('get_position_user', '/position_user/{user_id}')
     config.add_route('get_leaderboard_achievement', '/leaderboard/{achievement_id}')
     config.add_route('get_leaderboard_user', '/leaderboard/{user_id}/{achievement_id}/{relevance}')
@@ -30,4 +31,5 @@ def config_routes(config):
     config.add_route('increase_data','/increase_data')
     config.add_route('tables','/tables')
     config.add_route('progress_user','/progress_user')
+    config.add_route('badges','/badges')
     

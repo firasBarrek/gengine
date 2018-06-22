@@ -37,26 +37,24 @@
       <br>
       <br>
       <div class="row" style="margin-left:1%">
-        <h4>The winner is <b style="color:#D2691E;">{{winner.user.additional_public_data.INTERV_LAST_NAME}} {{winner.user.additional_public_data.INTERV_FIRST_NAME}}</b><img src="{{ request.static_path('gengine.app:static/img/cup.jpg') }}" width="70" heigth="70"/></h4>
+        <h4>The winner is <b style="color:#D2691E;">{{winner.user.additional_public_data[header_table[1]]}} {{winner.user.additional_public_data[header_table[2]]}}</b><img src="{{ request.static_path('gengine.app:static/img/cup.jpg') }}" width="70" heigth="70"/></h4>
       </div>
           <div class="table-responsive">
             <table class="table table-bordered" id="example" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>INTERV_ID</th>
-                  <th>FIRST_NAME</th>
-                  <th>LAST_NAME</th>
-                  <th>FUNCTION</th>
+                {% for item in header_table %}
+                  <th>{{item}}</th>
+                {% endfor %}
                   <th>VALUE</th>
                   <th>POSITION</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>INTERV_ID</th>
-                  <th>FIRST_NAME</th>
-                  <th>LAST_NAME</th>
-                  <th>FUNCTION</th>
+                {% for item in header_table %}
+                  <th>{{item}}</th>
+                {% endfor %}
                   <th>VALUE</th>
                   <th>POSITION</th>
                 </tr>
@@ -64,10 +62,9 @@
               <tbody>
                 {% for res in result %}
                 <tr>
-                  <td>{{ res.user.additional_public_data.INTERV_ID }}</td>
-                  <td>{{ res.user.additional_public_data.INTERV_FIRST_NAME }}</td>
-                  <td>{{ res.user.additional_public_data.INTERV_LAST_NAME }}</td>
-                  <td>{{ res.user.additional_public_data.INTERV_FUNCTION_NAME }}</td>
+                  {% for item in header_table %}
+                    <td>{{ res.user.additional_public_data[item]}}</td>
+                  {% endfor %}
                   <td>{{ res.value }}</td>
                   <td>{{ res.position +1 }}</td>
                 </tr>
@@ -79,9 +76,10 @@
       {% block scripts %}
       <script>
         $(document).ready(function() {
-            $('#example').DataTable( {
-                "order": [[ 4, "desc" ]]
-            } );
-        } );
+        var num_columns = $('#example').find('thead > tr:first > th').length;
+          $('#example').DataTable({
+              "order": [[ num_columns-2, "desc" ]]
+          });
+        });
       </script>
       {% endblock %}

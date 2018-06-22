@@ -39,7 +39,7 @@ from gengine.app.model import (
     Achievement,
     Value,
     Variable,
-    AuthUser, AuthToken, t_users, AchievementProperty, Reward, AchievementCategory, Goal,
+    AuthUser, AuthToken, t_users, AchievementProperty, Reward, AchievementCategory, Goal, AchievementReward,
     t_auth_users, t_auth_users_roles, t_auth_roles, t_auth_roles_permissions, UserDevice,
     t_user_device, t_user_messages, UserMessage)
 from gengine.base.settings import get_settings
@@ -99,13 +99,6 @@ def goal(request):
         with open(dir_name) as f:
             keys = f.readline().rstrip().split(";")
         return {'keys':keys,'params':params}
-"""
-@view_config(route_name="sortleaderboard", renderer="JSON", request_method="POST")
-def sortleaderboard(request):
-    sorted_by = request.POST["sort"]
-    sort_res = User.sort(sorted_by)
-    return {'sort_res',sort_res}
-"""
 
 @view_config(route_name="leaderboard", renderer="gengine.app:templates/index/leaderboard.jinja2")
 def leaderboard(request):
@@ -118,24 +111,34 @@ def leaderboard(request):
             sorted_by["type"]=params["type"]
             sorted_by.update({'value':request.POST['sorted_value']})
             result = Achievement.get_leaderbord_by_relevance(achievement_id,sorted_by)
-            return {'result':result,'winner':result[0],'params':params,'sorted_by':sorted_by["type"],'achievement':achievement,'sorted_value':request.POST['sorted_value']}
+            header_table = []
+            for key, value in result[0]["user"]["additional_public_data"].items():
+                header_table.append(key)
+            return {'header_table':header_table,'result':result,'winner':result[0],'params':params,'sorted_by':sorted_by["type"],'achievement':achievement,'sorted_value':request.POST['sorted_value']}
         elif ('sorted_by' in request.POST):
             sorted_by["type"] = request.POST['sorted_by']
             params.update({'type':request.POST['sorted_by']})
             if sorted_by["type"]=='Global':
                 result = Achievement.get_leaderbord_by_achievement(achievement_id)
-                return {'result':result,'winner':result[0],'params':params,'sorted_by':sorted_by["type"],'achievement':achievement}
+                header_table = []
+                for key, value in result[0]["user"]["additional_public_data"].items():
+                    header_table.append(key)
+                return {'header_table':header_table,'result':result,'winner':result[0],'params':params,'sorted_by':sorted_by["type"],'achievement':achievement}
             else:
                 sort_res = User.sort(sorted_by["type"])
                 myarray = []
                 myarray = np.asarray(sort_res)
                 result = Achievement.get_leaderbord_by_achievement(achievement_id)
-                return {'result':result,'winner':result[0],'exist':sort_res,'sort_res':myarray,'params':params,'sorted_by':sorted_by["type"],'achievement':achievement}
+                header_table = []
+                for key, value in result[0]["user"]["additional_public_data"].items():
+                    header_table.append(key)
+                return {'header_table':header_table,'result':result,'winner':result[0],'exist':sort_res,'sort_res':myarray,'params':params,'sorted_by':sorted_by["type"],'achievement':achievement}
     else:
         result = Achievement.get_leaderbord_by_achievement(achievement_id)
-        print(result[0].keys())
-        print(result[0]["user"]["additional_public_data"].keys())
-        return {'result':result,'winner':result[0],'params':params,'sorted_by':sorted_by["type"],'achievement':achievement}
+        header_table = []
+        for key, value in result[0]["user"]["additional_public_data"].items():
+            header_table.append(key)
+        return {'header_table':header_table,'result':result,'winner':result[0],'params':params,'sorted_by':sorted_by["type"],'achievement':achievement}
 
 @view_config(route_name="increase_data",renderer="gengine.app:templates/index/increase_data.jinja2")
 def increase_data(request):
@@ -203,9 +206,55 @@ def progress_user(request):
         res_id_user = User.get_by_id(user_id,user_id_value)
         leaderboard = Achievement.get_leaderbord_by_user(achievement_id,res_id_user,sort_by)
         user = leaderboard['leaderboard'][leaderboard['user_position']]
-        return {'user':user,'achievements':achievements,'params':params,'keys':keys}
+        user_object = User.get_user(res_id_user)
+        prog = Achievement.evaluate(user_object, achievement_id, achievement_date=None, execute_triggers=True)
+        rewards = []
+        badges = []
+        current_level = prog['level']
+        levels = prog['levels']
+        for key,value in levels.items():
+            if value['level'] <= current_level:
+                for key,value in value['rewards'].items():
+                    if value['name'] == 'badge':
+                        badges.append(value['value'])
+                    if value['name'] == 'reward':
+                        rewards.append(value['value'])
+        header_user = []
+        for key, value in user['user']['additional_public_data'].items():
+            header_user.append(key)
+        return {'header_user':header_user,'user':user,'achievements':achievements,'params':params,'keys':keys,'badges':badges,'rewards':rewards,'current_level':current_level}
     else:
         return {'achievements':achievements,'params':params,'keys':keys}
+
+
+@view_config(route_name="badges",renderer="gengine.app:templates/index/badges.jinja2")
+def badges(request):
+    params = request.GET
+    achievements = Achievement.get_all_achievements()
+    if request.method == 'POST':
+        if 'achievement_id' in request.POST:
+            achievement_id = request.POST['achievement_id']
+            achievement = Achievement.get_achievement(achievement_id)
+            rewards = AchievementReward.get_rewards(achievement_id,6)
+            badges = AchievementReward.get_rewards(achievement_id,1)
+            nb_levels = (int)(achievement["maxlevel"]/5)
+            if not badges:
+                AchievementReward.create_achievement_rewards_badges(achievement_id,"badge1.PNG",1)
+                AchievementReward.create_achievement_rewards_badges(achievement_id,"badge2.PNG",nb_levels)
+                AchievementReward.create_achievement_rewards_badges(achievement_id,"badge3.PNG",nb_levels*2)
+                AchievementReward.create_achievement_rewards_badges(achievement_id,"badge4.PNG",nb_levels*3)
+                AchievementReward.create_achievement_rewards_badges(achievement_id,"badge5.PNG",nb_levels*4)
+                AchievementReward.create_achievement_rewards_badges(achievement_id,"badge6.PNG",nb_levels*5)
+            achievement_id = request.POST['achievement_id']
+            return {'selected_achievement':achievement_id,'achievements':achievements,'params':params,'levels':nb_levels,'rewards':rewards}
+        else:
+            reward_name = request.POST['reward_name']
+            reward_level = request.POST['reward_level']
+            selected_achievement = request.POST['selected_achievement']
+            AchievementReward.create_achievement_rewards(selected_achievement, reward_name, reward_level)
+            return {'achievements':achievements,'params':params}
+    else:
+        return {'achievements':achievements,'params':params}
 
 @view_config(route_name="index",renderer="gengine.app:templates/index/index.jinja2")
 def index(request):
@@ -214,6 +263,14 @@ def index(request):
 @view_config(route_name="dashbord",renderer="gengine.app:templates/index/dashbord.jinja2")
 def dashbord(request):
     return {}
+
+
+@view_config(route_name='progress_users', renderer='json', request_method="GET")
+def progress_users(request):
+    achievement_id = int(request.matchdict["achievement_id"])
+    leaderboard = Achievement.get_leaderbord_by_achievement(achievement_id)
+    progress = Achievement.get_achievement_max_value(achievement_id)
+    return {"max_value":progress,"leaderboard" : leaderboard}
 
 
 @view_config(route_name='add_or_update_user', renderer='string', request_method="POST")
@@ -313,7 +370,6 @@ def _get_progress(achievements_for_user, requesting_user):
 
     def ea(achievement, achievement_date, execute_triggers):
         try:
-            print("**********************************ea --> execute triggers*****************************************",execute_triggers)
             return Achievement.evaluate(achievements_for_user, achievement["id"], achievement_date, execute_triggers=execute_triggers)
         except FormularEvaluationException as e:
             return { "error": "Cannot evaluate formular: " + e.message, "id" : achievement["id"] }
@@ -326,7 +382,6 @@ def _get_progress(achievements_for_user, requesting_user):
     def may_view(achievement, requesting_user):
         if not asbool(get_settings().get("enable_user_authentication", False)):
             return True
-
         if achievement["view_permission"] == "everyone":
             return True
         if achievement["view_permission"] == "own" and achievements_for_user["id"] == requesting_user["id"]:
@@ -543,38 +598,6 @@ def get_position_user(request):
     res = {'user':user["id"],'achievements':Achievements}
     
     return res
-"""    
-@view_config(route_name='get_leaderboard', renderer='json', request_method="GET")
-def get_leaderboard(request):
-    user = User.get_user(1)
-    if not user:
-        raise APIError(404, "user_not_found", "user not found")
-
-    output = _get_progress(achievements_for_user=user, requesting_user=request.user)
-    output = copy.deepcopy(output)
-    
-    Achievements = []
-    for i in range(len(output["achievements"])):
-        if "new_levels" in output["achievements"][i]:
-            del output["achievements"][i]["new_levels"]
-        achievement = {}
-        achievement["achievement_name"] = output["achievements"][i]["internal_name"]
-        achievement["achievement_category"] = output["achievements"][i]["achievementcategory"]
-        goals_res = []
-        goals = output["achievements"][i]["goals"]
-        for goal in goals:
-            goal_res = {}
-            if "id" in goals[goal]:
-                goal_res["id"] = goals[goal]["id"]
-            if "leaderboard" in goals[goal]:
-                goal_res["leaderboard"] = goals[goal]["leaderboard"]
-            goals_res.append(goal_res)
-        achievement["goals"] = goals_res
-        Achievements.append(achievement)
-    res = {'achievements':Achievements}
-    
-    return res
-"""
 
 @view_config(route_name='increase_value', renderer='json', request_method="POST")
 @view_config(route_name='increase_value_with_key', renderer='json', request_method="POST")

@@ -1,0 +1,98 @@
+{% extends "../layout/user_layout.jinja2" %}
+{% block body %}
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="#">Badges and Rewards</a>
+        </li>
+        <li class="breadcrumb-item active">Configuration</li>
+      </ol>
+
+<span><b>Setting Badges & Rewards</b><span>
+<form action="{{request.route_url('badges',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data><p>
+
+<div class="form-group" style="width: 25%;">
+	<label for="achievement_id">Select achievement: (required) </label>
+	<select class="form-control" id="achievement_id" name="achievement_id" onchange="this.form.submit()">
+	<option value=""></option>
+	    {% for achievement in achievements %}
+	        <option value={{achievement["id"]}}>{{ achievement["name"] }}</option>
+	    {% endfor %}
+	</select>
+</div>
+
+</form>
+{% if levels %}
+<span><b>Badges</b></span>
+<div class="row" style="width:100%;display:inline-flex;">
+<div style="width: 15%;margin-left:1%;">
+	<img src="{{ request.static_path('gengine.app:static/img/badge1.PNG') }}" >
+	<span><b>Level: </b>1</span><br>
+	<span style="margin-left:10px;"><b>Badge 1</b></span>
+</div>
+
+<div style="width: 15%;margin-left:1%;">
+	<img src="{{ request.static_path('gengine.app:static/img/badge2.PNG') }}" >
+	<span><b>Level: </b>{{levels*1}}</span><br>
+	<span style="margin-left:10px;"><b>Badge 2</b></span>
+</div>
+
+<div style="width: 15%;margin-left:1%;">
+	<img src="{{ request.static_path('gengine.app:static/img/badge3.PNG') }}" >
+	<span><b>Level: </b>{{levels*2}}</span><br>
+	<span style="margin-left:10px;"><b>Badge 3</b></span>
+</div>
+
+<div style="width: 15%;margin-left:1%;">
+	<img src="{{ request.static_path('gengine.app:static/img/badge4.PNG') }}" >
+	<span><b>Level: </b>{{levels*3}}</span><br>
+	<span style="margin-left:10px;"><b>Badge 4</b></span>
+</div>
+
+<div style="width: 15%;margin-left:1%;">
+	<img src="{{ request.static_path('gengine.app:static/img/badge5.PNG') }}" >
+	<span><b>Level: </b>{{levels*4}}</span><br>
+	<span style="margin-left:10px;"><b>Badge 5</b></span>
+</div>
+
+<div style="width: 15%;margin-left:1%;">
+	<img src="{{ request.static_path('gengine.app:static/img/badge6.PNG') }}" >
+	<span><b>Level: </b>{{levels*5}}</span><br>
+	<span style="margin-left:10px;"><b>Badge 6</b></span>
+</div>
+</div>
+<br>
+<hr>
+<br>
+<p><b>Rewards</b></p>
+<div class="row" style="width:100%;display:inline-flex;">
+{% for item in rewards %}
+	<div style="width: 15%;margin-left:1%;">
+		<img src="{{ request.static_path('gengine.app:static/img/reward.PNG') }}" >
+		<span><b>Level: </b>{{item[5]}}</span><br>
+		<span style="margin-left:10px;"><b>{{item[3]}}</b></span>
+	</div>
+{% endfor %}
+</div>
+<br>
+<br>
+<form action="{{request.route_url('badges',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data><p>
+<div class="form-group" style="width: 25%;">
+	<label for="reward_name">Reward Name:</label>
+	<input class="form-control" type="text" id="reward_name" name="reward_name"/>
+</div>
+
+<div class="form-group" style="width: 25%;">
+	<label for="reward_level">Reward Level:</label>
+	<input class="form-control" type="number" id="reward_level" name="reward_level"/>
+</div>
+
+<div class="form-group" style="width: 25%;">
+	<input type="text" name="selected_achievement" value="{{selected_achievement}}" hidden/>
+	<input class="btn btn-primary" type="submit" value="Add Reward"/>
+</div>
+</form>
+{% endif %}
+
+{% endblock %}
+{% block scripts %}
+{% endblock %}

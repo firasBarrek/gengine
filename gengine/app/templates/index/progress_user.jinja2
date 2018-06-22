@@ -8,7 +8,7 @@
       </ol>
 
 <h2>Ckeck users progress</h2>
-
+<div>{{prog}}</div>
 <form action="{{request.route_url('progress_user',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data><p>
 <div style="display:inline-flex;width:100%;">
 	<div class="form-group" style="width: 25%;margin-right:10%;">
@@ -50,19 +50,57 @@
 
 </form>
 <br>
-{% if user %}
-	<div class="row" style="margin-left:1%;">
-		<b style="color:red;">User Results</b>
+<div class="row" style="width:100%;display:inline-flex;">
+
+  <div class="row" style="margin-left:1%;margin-right: 10%;">
+	{% if user %}
+		<div class="row" style="margin-left:1%;">
+			<span><b style="color:red;">User Results</b></span>
+		    {% for item in header_user %}
+		    	<span>{{item}} : <b style="color:blue;">{{user.user['additional_public_data'][item]}}</b><span><br>
+	        {% endfor %}
+			<span>Value : <b style="color:blue;">{{user['value']}}</b><span><br>
+			<span>Position : <b style="color:blue;">{{user['position']+1}}</b><span>
+		</div>
+	{% endif %}
+  </div>
+
+  <div>
+	<div class="row">
+		{% if current_level %}
+			<p><b>Current level:</b> {{current_level}}</p>
+		{% endif %}
+	</div> 
+	<div class="row">
+		{% if badges %}
+			<p><b>Badges</b></p>
+		{% endif %}
+		{% for item in badges %}
+		<div>
+			<div>
+				<img src="{{ request.static_path('gengine.app:static/img/'+item) }}" >
+			</div>
+		</div>
+		{% endfor %}
 	</div>
-	<div class="row" style="margin-left:1%;">
-		<span>INTERV_ID : <b style="color:blue;">{{user.user['additional_public_data']['INTERV_ID']}}</b><span><br>
-		<span>Last Name : <b style="color:blue;">{{user.user['additional_public_data']['INTERV_LAST_NAME']}}</b><span><br>
-		<span>First Name : <b style="color:blue;">{{user.user['additional_public_data']['INTERV_FIRST_NAME']}}</b><span><br>
-		<span>Function : <b style="color:blue;">{{user.user['additional_public_data']['INTERV_FUNCTION_NAME']}}</b><span><br>
-		<span>Value : <b style="color:blue;">{{user['value']}}</b><span><br>
-		<span>Position : <b style="color:blue;">{{user['position']+1}}</b><span>
+	<hr>
+	<div class="row">
+		{% if rewards %}
+		    <p><b>Rewards</b></p>
+		{% endif %}
+		{% for item in rewards %}
+		<div>
+			<div style="text-align: center;"">
+				<img src="{{ request.static_path('gengine.app:static/img/reward.PNG') }}" >
+				<p style="margin-left:10px;"><b>{{item}}</b></p>
+			</div>
+		</div>
+		{% endfor %}
 	</div>
-{% endif %}
+
+  </div>
+
+</div>
 <br>
 {% endblock %}
 {% block scripts %}
