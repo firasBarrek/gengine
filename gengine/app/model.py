@@ -457,6 +457,7 @@ class User(ABase):
 	@classmethod
 	def get_by_id(cls, user_id, user_id_value):
 		user = DBSession.query(t_users).filter(t_users.c.additional_public_data[user_id].astext == user_id_value).one()
+		print('user',user)
 		res_user_id = user[0]
 		return res_user_id
 

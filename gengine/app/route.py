@@ -4,6 +4,7 @@ def config_routes(config):
     config.add_route('progress_users','/progress_users/{achievement_id}')
     config.add_route('get_position_user', '/position_user/{user_id}')
     config.add_route('get_leaderboard_achievement', '/leaderboard/{achievement_id}')
+    config.add_route('users_cities','/users_cities/{achievement_id}')
     config.add_route('get_leaderboard_user', '/leaderboard/{user_id}/{achievement_id}/{relevance}')
     config.add_route('increase_value', '/increase_value/{variable_name}/{user_id}')
     config.add_route('increase_value_with_key', '/increase_value/{variable_name}/{user_id}/{key}')
@@ -24,6 +25,7 @@ def config_routes(config):
     config.add_route('add_Reward', '/add_Achivement_Rewards')
 
     config.add_route('index', '/index')
+    config.add_route('login','/login')
     config.add_route('upload','/upload')
     config.add_route('goal','/goal')
     config.add_route('dashbord','/dashbord')

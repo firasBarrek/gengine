@@ -264,6 +264,10 @@ def index(request):
 def dashbord(request):
     return {}
 
+@view_config(route_name="login",renderer="gengine.app:templates/index/login.jinja2")
+def login(request):
+    return {}
+
 
 @view_config(route_name='progress_users', renderer='json', request_method="GET")
 def progress_users(request):
@@ -271,6 +275,18 @@ def progress_users(request):
     leaderboard = Achievement.get_leaderbord_by_achievement(achievement_id)
     progress = Achievement.get_achievement_max_value(achievement_id)
     return {"max_value":progress,"leaderboard" : leaderboard}
+
+@view_config(route_name='users_cities', renderer='json', request_method="GET")
+def users_cities(request):
+    achievement_id = int(request.matchdict["achievement_id"])
+    cities = User.sort("City")
+    res_cities = []
+    res_cities = np.asarray(cities)
+    result = []
+    for i in range(len(res_cities)):
+        relevance = {'type':'City','value':res_cities[i][0]}
+        result.append({'City':res_cities[i][0],'Leaderboard':Achievement.get_leaderbord_by_relevance(achievement_id,relevance)}) 
+    return result
 
 
 @view_config(route_name='add_or_update_user', renderer='string', request_method="POST")
