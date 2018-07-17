@@ -8,7 +8,7 @@
       </ol>
 
 <h2>Increase Users Value</h2>
-<p id="showMoreMulti"><b>Click to upload your Data</b><p>
+<a id="showMoreMulti" href="#"><b>Click to upload your Data</b><a>
 <div id="showMoreDivMulti">
 <form action="{{request.route_url('increase_data',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data><p>
 
@@ -53,7 +53,9 @@
 </form>
 {% endif %}
 <br>
-<p id="showMore"><b>Or click to Add Value By User</b><p>
+<br>
+<br>
+<a id="showMore" href="#"><b>Or click to Add Value By User</b><a>
 <div id="showMoreDiv">
 <form action="{{request.route_url('increase_data',_query=params)}}" method=post accept-charset="utf-8" enctype=multipart/form-data>
 <div style="display:inline-flex;width:100%;">

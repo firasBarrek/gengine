@@ -288,6 +288,14 @@ def users_cities(request):
         result.append({'City':res_cities[i][0],'Leaderboard':Achievement.get_leaderbord_by_relevance(achievement_id,relevance)}) 
     return result
 
+@view_config(route_name="achievements_all", renderer='json', request_method="GET")
+def achievements_all(request):
+    achievements = Achievement.get_all_achievements()
+    result = []
+    for achievement in achievements:
+        result.append({"id":achievement["id"],"name":achievement["name"]})
+    return {'achievements':result}
+
 
 @view_config(route_name='add_or_update_user', renderer='string', request_method="POST")
 def add_or_update_user(request):

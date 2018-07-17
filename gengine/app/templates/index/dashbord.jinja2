@@ -6,8 +6,17 @@
         </li>
         <li class="breadcrumb-item active">Statistics</li>
       </ol>
-      <div class="row">
-      <div class="col-lg-12">
+      <!-- <div class="row"> -->
+
+  <div class="form-group" style="width: 25%;margin-left:2%;">
+    <label for="achievement_id">Select achievement: (required) </label>
+    <select class="form-control" id="achivement_id" name="achievement_id" >
+    </select>
+  </div>
+
+
+
+    <div class="col-lg-12" id="chartAria">
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-area-chart"></i> Area Chart Example</div>
@@ -19,16 +28,16 @@
       </div>
       </div>
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-8" id="chartBar">
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-bar-chart"></i> Bar Chart Example</div>
+              <i class="fa fa-bar-chart"></i> Bar Chart</div>
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-8 my-auto">
                   <canvas id="myBarChart" width="100" height="50"></canvas>
                 </div>
-                <div class="col-sm-4 text-center my-auto">
+                <!--<div class="col-sm-4 text-center my-auto">
                   <div class="h4 mb-0 text-primary">$34,693</div>
                   <div class="small text-muted">YTD Revenue</div>
                   <hr>
@@ -37,25 +46,144 @@
                   <hr>
                   <div class="h4 mb-0 text-success">$16,219</div>
                   <div class="small text-muted">YTD Margin</div>
-                </div>
+                </div>-->
               </div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            <div class="card-footer small text-muted">First 10 winners</div>
           </div>
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-4"  id="chartPie">
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-pie-chart"></i> Pie Chart Example</div>
+              <i class="fa fa-pie-chart"></i> Pie Chart</div>
             <div class="card-body">
               <canvas id="myPieChart" width="100%" height="100"></canvas>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            <div class="card-footer small text-muted"></div>
           </div>
+    </div> 
+    <div class="row">
+      <div id="container" style="margin-left:12%;"></div>
     </div>
-    </div>
+
       {% endblock %}
       {% block scripts %}
-      <script src="{{ request.static_path('gengine.app:static/js/sb-admin-charts.min.js') }}"></script>
+
+      <script>
+
+      function Piechart(data){
+          var ctx = document.getElementById("myPieChart");
+          var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+              labels: ["Region 1", "Region 2", "Region 3", "Region 4", "Region 5", "Region 6"],
+              datasets: [{
+                data: [130, 100, 37, 26, 35, 5,],
+                backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', '#ffb6c1', '#000000'],
+              }],
+            },
+          });
+      }
+
+            function ProgressBar(data){
+                maxval = data.max_value;
+                for (i = 0; i < data.leaderboard.length; i++){
+                var userval = parseInt(data.leaderboard[i].value)/maxval*100;
+                var component = '<div class="row" id="progressBar"><span class="col-md-12">'+data.leaderboard[i].user.additional_public_data.INTERV_LAST_NAME + " " + data.leaderboard[i].user.additional_public_data.INTERV_FIRST_NAME+'</span><div class="progress" style="width:60%;height:2rem;margin:2%;"><div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" style="width:'+userval.toFixed(2)+'%">  <span style="color: black;">'+userval.toFixed(2)+'% Complete</span> </div></div></div>';
+                $('#container').append(component);
+                };
+            }
+
+            function ChartBar(data){
+                dataValues = []
+                dataLabels = []
+                var maximum = data.max_value
+                for (i = 0; i < 10; i++){
+                  dataValues.push(data.leaderboard[i].value)
+                  dataLabels.push(data.leaderboard[i].user.additional_public_data.INTERV_LAST_NAME)
+                }
+                          var ctx = document.getElementById("myBarChart");
+                          var myLineChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                              labels: dataLabels,
+                              datasets: [{
+                                label: "Revenue",
+                                backgroundColor: "rgba(2,117,216,1)",
+                                borderColor: "rgba(2,117,216,1)",
+                                data: dataValues,
+                              }],
+                            },
+                            options: {
+                              scales: {
+                                xAxes: [{
+                                  time: {
+                                    unit: 'month'
+                                  },
+                                  gridLines: {
+                                    display: false
+                                  },
+                                  ticks: {
+                                    maxTicksLimit: 6
+                                  }
+                                }],
+                                yAxes: [{
+                                  ticks: {
+                                    min: 0,
+                                    max: maximum,
+                                    maxTicksLimit: 5
+                                  },
+                                  gridLines: {
+                                    display: true
+                                  }
+                                }],
+                              },
+                              legend: {
+                                display: false
+                              }
+                    }
+                });
+            }
+
+
+          function stats(id){
+              var maxval =1;
+              $.get("http://localhost:6543/progress_users/"+id, function(data, status){
+              //alert("Data: " + data.leaderboard + "\nStatus: " + status);
+              console.log(data.leaderboard);
+              ProgressBar(data)
+              ChartBar(data)
+              Piechart(data)
+            });
+          }
+
+
+          function init(){
+              $.get("http://localhost:6543/achievements_all", function(data, status){
+              //console.log(data);
+              data.achievements.forEach(function(element){
+                $('#achivement_id').append('<option value='+element.id+'>'+element.name+'</option>');
+              })
+            });
+          }
+
+          init()
+          $('#progressBar').hide()
+          $('#chartBar').hide()
+          $('#chartPie').hide()
+          $('#chartAria').hide()
+          
+
+          $('select').on('change', function() {
+              $('#progressBar').show()
+              $('#chartBar').show()
+              $('#chartPie').show()
+             id = this.value;
+             stats(id)
+
+            })
+
+      </script>
+      <!--<script src="{{ request.static_path('gengine.app:static/js/sb-admin-charts.min.js') }}"></script>-->
       {% endblock %}

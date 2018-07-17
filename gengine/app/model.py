@@ -1445,6 +1445,7 @@ class AchievementReward(ABase):
 		achievement_reward.from_level = level
 		DBSession.add(achievement_reward)
 		DBSession.flush()
+		DBSession.commit()
 		return achievement_reward
 
 	def create_achievement_rewards_badges(achievement_id, value, level):
@@ -1455,6 +1456,7 @@ class AchievementReward(ABase):
 		achievement_reward.from_level = level
 		DBSession.add(achievement_reward)
 		DBSession.flush()
+		DBSession.commit()
 		return achievement_reward
 
 class AchievementUser(ABase):
