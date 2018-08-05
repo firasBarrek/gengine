@@ -211,6 +211,15 @@ def progress_user(request):
         rewards = []
         badges = []
         current_level = prog['level']
+        all_rewards = AchievementReward.get_rewards(achievement_id,6)
+        all_badges = AchievementReward.get_rewards(achievement_id,1)
+        for i in range(0,len(all_rewards)):
+            if all_rewards[i]['from_level'] <= current_level:
+               rewards.append(all_rewards[i]['value'])
+        for i in range(0,len(all_badges)):
+            if all_badges[i]['from_level'] <= current_level:
+               badges.append(all_badges[i]['value'])
+        """
         levels = prog['levels']
         for key,value in levels.items():
             if value['level'] <= current_level:
@@ -219,6 +228,7 @@ def progress_user(request):
                         badges.append(value['value'])
                     if value['name'] == 'reward':
                         rewards.append(value['value'])
+        """
         header_user = []
         for key, value in user['user']['additional_public_data'].items():
             header_user.append(key)

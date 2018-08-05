@@ -1437,7 +1437,8 @@ class AchievementReward(ABase):
 									t_achievements_rewards.c.achievement_id==achievement_id))).fetchall()
 		#return DBSession.execute(t_achievements_rewards.select(t_achievements_rewards.c.reward_id==achievement_reward_id and t_achievements_rewards.c.achievement_id==achievement_id)).fetchall()
 
-	def create_achievement_rewards(achievement_id, value, level):
+	@classmethod
+	def create_achievement_rewards(cls,achievement_id, value, level):
 		achievement_reward = AchievementReward()
 		achievement_reward.achievement_id = achievement_id
 		achievement_reward.reward_id = 6
@@ -1448,7 +1449,8 @@ class AchievementReward(ABase):
 		DBSession.commit()
 		return achievement_reward
 
-	def create_achievement_rewards_badges(achievement_id, value, level):
+	@classmethod
+	def create_achievement_rewards_badges(cls,achievement_id, value, level):
 		achievement_reward = AchievementReward()
 		achievement_reward.achievement_id = achievement_id
 		achievement_reward.reward_id = 1
